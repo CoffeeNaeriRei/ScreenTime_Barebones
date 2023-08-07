@@ -16,6 +16,7 @@ struct ContentView: View {
             Text("CoffeeNaeriRei")
                 .bold()
             Text("Edit Coffee!")
+            Text("Edit REi!")
         }
         .padding()
     }
