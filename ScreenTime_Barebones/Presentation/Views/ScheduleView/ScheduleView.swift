@@ -9,7 +9,20 @@ import SwiftUI
 
 struct ScheduleView: View {
     var body: some View {
-        Text("I'm Schedule")
+        VStack {
+            Button {
+                FamilyControlsManager.shared.requestAuthorizationRevoke()
+            } label: {
+                Text("Revoke Permission")
+            }
+            .buttonStyle(.borderedProminent)
+            Button {
+                print(FamilyControlsManager.shared.requestAuthorizationStatus())
+            } label: {
+                Text("check Permission")
+            }
+            .buttonStyle(.borderedProminent)
+        }
     }
 }
 
