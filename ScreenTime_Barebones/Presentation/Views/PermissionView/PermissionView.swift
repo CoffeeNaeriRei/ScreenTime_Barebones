@@ -9,7 +9,12 @@ import SwiftUI
 
 struct PermissionView: View {
     var body: some View {
-        Text("I'm Permission")
+        Button {
+            FamilyControlsManager.shared.requestAuthorization()
+        } label: {
+            Text("Add Permission")
+        }
+        .buttonStyle(.borderedProminent)
     }
 }
 

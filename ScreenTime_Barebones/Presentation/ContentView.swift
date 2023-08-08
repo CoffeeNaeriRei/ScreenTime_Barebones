@@ -8,28 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @State var tabIndex = 0
-    @State var hasPermission = false
     
     var body: some View {
-        Group {
-            if !hasPermission {
-                PermissionView()
-            } else {
-                TabView(selection: $tabIndex) {
-                    ScheduleView()
-                        .tabItem {
-                            Label("Schedule", systemImage: "tray.and.arrow.down.fill")
-                        }
-                        .tag(0)
-                    MonitoringView()
-                        .tabItem {
-                            Label("Monitoring", systemImage: "tray.and.arrow.down.fill")
-                        }
-                        .tag(1)
+        TabView(selection: $tabIndex) {
+            ScheduleView()
+                .tabItem {
+                    Label("Schedule", systemImage: "tray.and.arrow.down.fill")
                 }
-            }
+                .tag(0)
+            MonitoringView()
+                .tabItem {
+                    Label("Monitoring", systemImage: "tray.and.arrow.down.fill")
+                }
+                .tag(1)
         }
     }
 }

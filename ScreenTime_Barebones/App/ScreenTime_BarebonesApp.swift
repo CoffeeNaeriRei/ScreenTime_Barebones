@@ -9,9 +9,21 @@ import SwiftUI
 
 @main
 struct ScreenTime_BarebonesApp: App {
+    @StateObject var familyControlsManager = FamilyControlsManager.shared
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VStack {
+                if !familyControlsManager.hasScreenTimePermission {
+                    PermissionView()
+                } else {
+                    ContentView()
+                }
+            }
+            .onReceive(familyControlsManager.authorizationCenter.$authorizationStatus) { newValue in
+                familyControlsManager.updateAuthorizationStatus(authStatus: newValue)
+            }
+            .environmentObject(familyControlsManager)
         }
     }
 }
