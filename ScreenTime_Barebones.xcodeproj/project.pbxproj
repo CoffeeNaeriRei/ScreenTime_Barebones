@@ -11,6 +11,10 @@
 		A9F327622A80DFDD0075CD7F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327612A80DFDD0075CD7F /* ContentView.swift */; };
 		A9F327642A80DFDF0075CD7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F327632A80DFDF0075CD7F /* Assets.xcassets */; };
 		A9F327672A80DFDF0075CD7F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F327662A80DFDF0075CD7F /* Preview Assets.xcassets */; };
+		A9F327712A81CDEB0075CD7F /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327702A81CDEB0075CD7F /* PermissionView.swift */; };
+		A9F327762A81CE7D0075CD7F /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327752A81CE7D0075CD7F /* ScheduleView.swift */; };
+		A9F327782A81CE8C0075CD7F /* MonitoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327772A81CE8C0075CD7F /* MonitoringView.swift */; };
+		A9F3277B2A81D1410075CD7F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A9F3277A2A81D1410075CD7F /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		A9F327612A80DFDD0075CD7F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A9F327632A80DFDF0075CD7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9F327662A80DFDF0075CD7F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A9F327702A81CDEB0075CD7F /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
+		A9F327752A81CE7D0075CD7F /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		A9F327772A81CE8C0075CD7F /* MonitoringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitoringView.swift; sourceTree = "<group>"; };
+		A9F3277A2A81D1410075CD7F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,7 @@
 		A9F327532A80DFDD0075CD7F = {
 			isa = PBXGroup;
 			children = (
+				A9F3277A2A81D1410075CD7F /* .swiftlint.yml */,
 				A9F3275E2A80DFDD0075CD7F /* ScreenTime_Barebones */,
 				A9F3275D2A80DFDD0075CD7F /* Products */,
 			);
@@ -51,8 +60,8 @@
 		A9F3275E2A80DFDD0075CD7F /* ScreenTime_Barebones */ = {
 			isa = PBXGroup;
 			children = (
-				A9F3275F2A80DFDD0075CD7F /* ScreenTime_BarebonesApp.swift */,
-				A9F327612A80DFDD0075CD7F /* ContentView.swift */,
+				A9F3276D2A81CD1D0075CD7F /* App */,
+				A9F3276E2A81CD250075CD7F /* Presentation */,
 				A9F327632A80DFDF0075CD7F /* Assets.xcassets */,
 				A9F327652A80DFDF0075CD7F /* Preview Content */,
 			);
@@ -67,6 +76,57 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A9F3276D2A81CD1D0075CD7F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A9F3275F2A80DFDD0075CD7F /* ScreenTime_BarebonesApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A9F3276E2A81CD250075CD7F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				A9F327612A80DFDD0075CD7F /* ContentView.swift */,
+				A9F3276F2A81CDB20075CD7F /* Views */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		A9F3276F2A81CDB20075CD7F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A9F327742A81CE6F0075CD7F /* ScheduleView */,
+				A9F327732A81CE2A0075CD7F /* MonitoringView */,
+				A9F327722A81CE1E0075CD7F /* PermissionView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A9F327722A81CE1E0075CD7F /* PermissionView */ = {
+			isa = PBXGroup;
+			children = (
+				A9F327702A81CDEB0075CD7F /* PermissionView.swift */,
+			);
+			path = PermissionView;
+			sourceTree = "<group>";
+		};
+		A9F327732A81CE2A0075CD7F /* MonitoringView */ = {
+			isa = PBXGroup;
+			children = (
+				A9F327772A81CE8C0075CD7F /* MonitoringView.swift */,
+			);
+			path = MonitoringView;
+			sourceTree = "<group>";
+		};
+		A9F327742A81CE6F0075CD7F /* ScheduleView */ = {
+			isa = PBXGroup;
+			children = (
+				A9F327752A81CE7D0075CD7F /* ScheduleView.swift */,
+			);
+			path = ScheduleView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +134,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9F3276A2A80DFDF0075CD7F /* Build configuration list for PBXNativeTarget "ScreenTime_Barebones" */;
 			buildPhases = (
+				A9F327792A81D0E80075CD7F /* Swift Lint */,
 				A9F327582A80DFDD0075CD7F /* Sources */,
 				A9F327592A80DFDD0075CD7F /* Frameworks */,
 				A9F3275A2A80DFDD0075CD7F /* Resources */,
@@ -125,6 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9F3277B2A81D1410075CD7F /* .swiftlint.yml in Resources */,
 				A9F327672A80DFDF0075CD7F /* Preview Assets.xcassets in Resources */,
 				A9F327642A80DFDF0075CD7F /* Assets.xcassets in Resources */,
 			);
@@ -132,13 +194,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A9F327792A81D0E80075CD7F /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A9F327582A80DFDD0075CD7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9F327712A81CDEB0075CD7F /* PermissionView.swift in Sources */,
+				A9F327762A81CE7D0075CD7F /* ScheduleView.swift in Sources */,
 				A9F327622A80DFDD0075CD7F /* ContentView.swift in Sources */,
 				A9F327602A80DFDD0075CD7F /* ScreenTime_BarebonesApp.swift in Sources */,
+				A9F327782A81CE8C0075CD7F /* MonitoringView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
