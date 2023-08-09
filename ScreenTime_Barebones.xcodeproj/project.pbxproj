@@ -28,6 +28,8 @@
 		A9F327CD2A81DE140075CD7F /* FamilyControlsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327CC2A81DE140075CD7F /* FamilyControlsManager.swift */; };
 		A9F327D22A827FBE0075CD7F /* MainTabVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327D12A827FBE0075CD7F /* MainTabVM.swift */; };
 		A9F327D42A827FDF0075CD7F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327D32A827FDF0075CD7F /* MainTabView.swift */; };
+		A9F327D82A836A310075CD7F /* DeviceActivtyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327D72A836A310075CD7F /* DeviceActivtyManager.swift */; };
+		A9F327DA2A836CB20075CD7F /* ScheduleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327D92A836CB20075CD7F /* ScheduleVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		A9F327CC2A81DE140075CD7F /* FamilyControlsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyControlsManager.swift; sourceTree = "<group>"; };
 		A9F327D12A827FBE0075CD7F /* MainTabVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabVM.swift; sourceTree = "<group>"; };
 		A9F327D32A827FDF0075CD7F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		A9F327D72A836A310075CD7F /* DeviceActivtyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivtyManager.swift; sourceTree = "<group>"; };
+		A9F327D92A836CB20075CD7F /* ScheduleVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,7 @@
 		A9F3276D2A81CD1D0075CD7F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				A9F327612A80DFDD0075CD7F /* ContentView.swift */,
 				A9F3275F2A80DFDD0075CD7F /* ScreenTime_BarebonesApp.swift */,
 			);
 			path = App;
@@ -204,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				A9F327CF2A827F9F0075CD7F /* ViewModels */,
-				A9F327612A80DFDD0075CD7F /* ContentView.swift */,
 				A9F3276F2A81CDB20075CD7F /* Views */,
 			);
 			path = Presentation;
@@ -289,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F327CC2A81DE140075CD7F /* FamilyControlsManager.swift */,
+				A9F327D72A836A310075CD7F /* DeviceActivtyManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				A9F327D02A827FA70075CD7F /* Components */,
+				A9F327D92A836CB20075CD7F /* ScheduleVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -502,12 +508,14 @@
 			files = (
 				A9F327712A81CDEB0075CD7F /* PermissionView.swift in Sources */,
 				A9F327762A81CE7D0075CD7F /* ScheduleView.swift in Sources */,
+				A9F327D82A836A310075CD7F /* DeviceActivtyManager.swift in Sources */,
 				A9F327622A80DFDD0075CD7F /* ContentView.swift in Sources */,
 				A9F327D42A827FDF0075CD7F /* MainTabView.swift in Sources */,
 				A9F327D22A827FBE0075CD7F /* MainTabVM.swift in Sources */,
 				A9F327CD2A81DE140075CD7F /* FamilyControlsManager.swift in Sources */,
 				A9F327602A80DFDD0075CD7F /* ScreenTime_BarebonesApp.swift in Sources */,
 				A9F327782A81CE8C0075CD7F /* MonitoringView.swift in Sources */,
+				A9F327DA2A836CB20075CD7F /* ScheduleVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

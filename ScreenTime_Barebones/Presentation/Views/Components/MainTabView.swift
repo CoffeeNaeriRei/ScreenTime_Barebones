@@ -15,7 +15,6 @@ struct MainTabView: View {
             ForEach(MainTab.allCases, id: \.self) { mainTab in
                 mainTab.view
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .border(.red, width: 2)
                     .tabItem {
                         Label(
                             mainTab.labelInfo.text,
@@ -24,6 +23,11 @@ struct MainTabView: View {
                     }
                     .tag(mainTab.hashValue)
             }
+        }
+        .onAppear {
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
+            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         }
     }
 }
