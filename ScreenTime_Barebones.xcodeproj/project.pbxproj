@@ -30,6 +30,10 @@
 		A9F327D42A827FDF0075CD7F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327D32A827FDF0075CD7F /* MainTabView.swift */; };
 		A9F327D82A836A310075CD7F /* DeviceActivtyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327D72A836A310075CD7F /* DeviceActivtyManager.swift */; };
 		A9F327DA2A836CB20075CD7F /* ScheduleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327D92A836CB20075CD7F /* ScheduleVM.swift */; };
+		B84A0ABB2A83CFE800EA9571 /* ScreenTimeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A0ABA2A83CFE800EA9571 /* ScreenTimeReport.swift */; };
+		B84A0ABD2A83CFE800EA9571 /* TotalActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A0ABC2A83CFE800EA9571 /* TotalActivityReport.swift */; };
+		B84A0ABF2A83CFE800EA9571 /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A0ABE2A83CFE800EA9571 /* TotalActivityView.swift */; };
+		B84A0AC42A83CFE800EA9571 /* ScreenTimeReport.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = B84A0AB82A83CFE800EA9571 /* ScreenTimeReport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +58,11 @@
 			remoteGlobalIDString = A9F327BA2A81D8410075CD7F;
 			remoteInfo = ShieldConfiguration;
 		};
-		B84A0A5C2A82896C00EA9571 /* PBXContainerItemProxy */ = {
+		B84A0AC22A83CFE800EA9571 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A9F327542A80DFDD0075CD7F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B84A0A512A82896C00EA9571;
+			remoteGlobalIDString = B84A0AB72A83CFE800EA9571;
 			remoteInfo = ScreenTimeReport;
 		};
 /* End PBXContainerItemProxy section */
@@ -83,7 +87,7 @@
 			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
 			dstSubfolderSpec = 16;
 			files = (
-				B84A0A5E2A82896C00EA9571 /* ScreenTimeReport.appex in Embed ExtensionKit Extensions */,
+				B84A0AC42A83CFE800EA9571 /* ScreenTimeReport.appex in Embed ExtensionKit Extensions */,
 			);
 			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +125,12 @@
 		A9F327D32A827FDF0075CD7F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		A9F327D72A836A310075CD7F /* DeviceActivtyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivtyManager.swift; sourceTree = "<group>"; };
 		A9F327D92A836CB20075CD7F /* ScheduleVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleVM.swift; sourceTree = "<group>"; };
+		B84A0AB82A83CFE800EA9571 /* ScreenTimeReport.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = ScreenTimeReport.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B84A0ABA2A83CFE800EA9571 /* ScreenTimeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeReport.swift; sourceTree = "<group>"; };
+		B84A0ABC2A83CFE800EA9571 /* TotalActivityReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityReport.swift; sourceTree = "<group>"; };
+		B84A0ABE2A83CFE800EA9571 /* TotalActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityView.swift; sourceTree = "<group>"; };
+		B84A0AC02A83CFE800EA9571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B84A0AC12A83CFE800EA9571 /* ScreenTimeReport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ScreenTimeReport.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +166,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B84A0A4F2A82896C00EA9571 /* Frameworks */ = {
+		B84A0AB52A83CFE800EA9571 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -174,7 +184,7 @@
 				A9F327842A81D7130075CD7F /* DeviceActivityMonitor */,
 				A9F327AC2A81D81C0075CD7F /* ShieldAction */,
 				A9F327BF2A81D8410075CD7F /* ShieldConfiguration */,
-				B84A0A532A82896C00EA9571 /* ScreenTimeReport */,
+				B84A0AB92A83CFE800EA9571 /* ScreenTimeReport */,
 				A9F327812A81D7130075CD7F /* Frameworks */,
 				A9F3275D2A80DFDD0075CD7F /* Products */,
 			);
@@ -187,7 +197,7 @@
 				A9F327802A81D7130075CD7F /* DeviceActivityMonitor.appex */,
 				A9F327A92A81D81C0075CD7F /* ShieldAction.appex */,
 				A9F327BB2A81D8410075CD7F /* ShieldConfiguration.appex */,
-				B84A0A522A82896C00EA9571 /* ScreenTimeReport.appex */,
+				B84A0AB82A83CFE800EA9571 /* ScreenTimeReport.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -340,6 +350,18 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		B84A0AB92A83CFE800EA9571 /* ScreenTimeReport */ = {
+			isa = PBXGroup;
+			children = (
+				B84A0ABA2A83CFE800EA9571 /* ScreenTimeReport.swift */,
+				B84A0ABC2A83CFE800EA9571 /* TotalActivityReport.swift */,
+				B84A0ABE2A83CFE800EA9571 /* TotalActivityView.swift */,
+				B84A0AC02A83CFE800EA9571 /* Info.plist */,
+				B84A0AC12A83CFE800EA9571 /* ScreenTimeReport.entitlements */,
+			);
+			path = ScreenTimeReport;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -360,7 +382,7 @@
 				A9F3278A2A81D7130075CD7F /* PBXTargetDependency */,
 				A9F327B22A81D81C0075CD7F /* PBXTargetDependency */,
 				A9F327C52A81D8410075CD7F /* PBXTargetDependency */,
-				B84A0A5D2A82896C00EA9571 /* PBXTargetDependency */,
+				B84A0AC32A83CFE800EA9571 /* PBXTargetDependency */,
 			);
 			name = ScreenTime_Barebones;
 			productName = ScreenTime_Barebones;
@@ -418,13 +440,13 @@
 			productReference = A9F327BB2A81D8410075CD7F /* ShieldConfiguration.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		B84A0A512A82896C00EA9571 /* ScreenTimeReport */ = {
+		B84A0AB72A83CFE800EA9571 /* ScreenTimeReport */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B84A0A612A82896C00EA9571 /* Build configuration list for PBXNativeTarget "ScreenTimeReport" */;
+			buildConfigurationList = B84A0AC52A83CFE800EA9571 /* Build configuration list for PBXNativeTarget "ScreenTimeReport" */;
 			buildPhases = (
-				B84A0A4E2A82896C00EA9571 /* Sources */,
-				B84A0A4F2A82896C00EA9571 /* Frameworks */,
-				B84A0A502A82896C00EA9571 /* Resources */,
+				B84A0AB42A83CFE800EA9571 /* Sources */,
+				B84A0AB52A83CFE800EA9571 /* Frameworks */,
+				B84A0AB62A83CFE800EA9571 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -432,7 +454,7 @@
 			);
 			name = ScreenTimeReport;
 			productName = ScreenTimeReport;
-			productReference = B84A0A522A82896C00EA9571 /* ScreenTimeReport.appex */;
+			productReference = B84A0AB82A83CFE800EA9571 /* ScreenTimeReport.appex */;
 			productType = "com.apple.product-type.extensionkit-extension";
 		};
 /* End PBXNativeTarget section */
@@ -457,7 +479,7 @@
 					A9F327BA2A81D8410075CD7F = {
 						CreatedOnToolsVersion = 14.3;
 					};
-					B84A0A512A82896C00EA9571 = {
+					B84A0AB72A83CFE800EA9571 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
@@ -479,7 +501,7 @@
 				A9F3277F2A81D7130075CD7F /* DeviceActivityMonitor */,
 				A9F327A82A81D81C0075CD7F /* ShieldAction */,
 				A9F327BA2A81D8410075CD7F /* ShieldConfiguration */,
-				B84A0A512A82896C00EA9571 /* ScreenTimeReport */,
+				B84A0AB72A83CFE800EA9571 /* ScreenTimeReport */,
 			);
 		};
 /* End PBXProject section */
@@ -516,7 +538,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B84A0A502A82896C00EA9571 /* Resources */ = {
+		B84A0AB62A83CFE800EA9571 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -589,13 +611,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B84A0A4E2A82896C00EA9571 /* Sources */ = {
+		B84A0AB42A83CFE800EA9571 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B84A0A592A82896C00EA9571 /* TotalActivityView.swift in Sources */,
-				B84A0A552A82896C00EA9571 /* ScreenTimeReport.swift in Sources */,
-				B84A0A572A82896C00EA9571 /* TotalActivityReport.swift in Sources */,
+				B84A0ABF2A83CFE800EA9571 /* TotalActivityView.swift in Sources */,
+				B84A0ABB2A83CFE800EA9571 /* ScreenTimeReport.swift in Sources */,
+				B84A0ABD2A83CFE800EA9571 /* TotalActivityReport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,10 +639,10 @@
 			target = A9F327BA2A81D8410075CD7F /* ShieldConfiguration */;
 			targetProxy = A9F327C42A81D8410075CD7F /* PBXContainerItemProxy */;
 		};
-		B84A0A5D2A82896C00EA9571 /* PBXTargetDependency */ = {
+		B84A0AC32A83CFE800EA9571 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B84A0A512A82896C00EA9571 /* ScreenTimeReport */;
-			targetProxy = B84A0A5C2A82896C00EA9571 /* PBXContainerItemProxy */;
+			target = B84A0AB72A83CFE800EA9571 /* ScreenTimeReport */;
+			targetProxy = B84A0AC22A83CFE800EA9571 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -957,7 +979,7 @@
 			};
 			name = Release;
 		};
-		B84A0A5F2A82896C00EA9571 /* Debug */ = {
+		B84A0AC62A83CFE800EA9571 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ScreenTimeReport/ScreenTimeReport.entitlements;
@@ -984,7 +1006,7 @@
 			};
 			name = Debug;
 		};
-		B84A0A602A82896C00EA9571 /* Release */ = {
+		B84A0AC72A83CFE800EA9571 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ScreenTimeReport/ScreenTimeReport.entitlements;
@@ -1059,11 +1081,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B84A0A612A82896C00EA9571 /* Build configuration list for PBXNativeTarget "ScreenTimeReport" */ = {
+		B84A0AC52A83CFE800EA9571 /* Build configuration list for PBXNativeTarget "ScreenTimeReport" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B84A0A5F2A82896C00EA9571 /* Debug */,
-				B84A0A602A82896C00EA9571 /* Release */,
+				B84A0AC62A83CFE800EA9571 /* Debug */,
+				B84A0AC72A83CFE800EA9571 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
