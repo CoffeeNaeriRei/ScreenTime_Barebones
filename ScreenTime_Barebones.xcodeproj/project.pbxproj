@@ -34,6 +34,9 @@
 		B84A0ABF2A83CFE800EA9571 /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A0ABE2A83CFE800EA9571 /* TotalActivityView.swift */; };
 		B84A0AC42A83CFE800EA9571 /* ScreenTimeReport.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = B84A0AB82A83CFE800EA9571 /* ScreenTimeReport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B84A0ACA2A83DA2D00EA9571 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327852A81D7130075CD7F /* DeviceActivityMonitorExtension.swift */; };
+		B84A0ACD2A83DC2400EA9571 /* DeviceActivtyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327D72A836A310075CD7F /* DeviceActivtyManager.swift */; };
+		B84A0ACE2A83DC3100EA9571 /* ScheduleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327D92A836CB20075CD7F /* ScheduleVM.swift */; };
+		B84A0ACF2A83DC9900EA9571 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327852A81D7130075CD7F /* DeviceActivityMonitorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -579,6 +582,7 @@
 				A9F327D82A836A310075CD7F /* DeviceActivtyManager.swift in Sources */,
 				A9F327622A80DFDD0075CD7F /* ContentView.swift in Sources */,
 				A9F327D42A827FDF0075CD7F /* MainTabView.swift in Sources */,
+				B84A0ACF2A83DC9900EA9571 /* DeviceActivityMonitorExtension.swift in Sources */,
 				A9F327D22A827FBE0075CD7F /* MainTabVM.swift in Sources */,
 				A9F327CD2A81DE140075CD7F /* FamilyControlsManager.swift in Sources */,
 				A9F327602A80DFDD0075CD7F /* ScreenTime_BarebonesApp.swift in Sources */,
@@ -591,6 +595,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B84A0ACD2A83DC2400EA9571 /* DeviceActivtyManager.swift in Sources */,
+				B84A0ACE2A83DC3100EA9571 /* ScheduleVM.swift in Sources */,
 				B84A0ACA2A83DA2D00EA9571 /* DeviceActivityMonitorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

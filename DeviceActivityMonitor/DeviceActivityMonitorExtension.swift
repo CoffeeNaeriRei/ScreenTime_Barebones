@@ -6,20 +6,31 @@
 //
 
 import DeviceActivity
+import ManagedSettings
 
 // Optionally override any of the functions below.
 // Make sure that your class name matches the NSExtensionPrincipalClass in your Info.plist.
 class DeviceActivityMonitorExtension: DeviceActivityMonitor {
+    let store = ManagedSettingsStore(named: .dailySleep)
+    
+    //MARK: - 스케줄의 시작 시점 이후 처음으로 기기가 사용될 때 호출되는 메서드
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
         
+        var vm = ScheduleVM()
         // Handle the start of the interval.
+        // FamilyActivityPicker로 선택한 앱들에 실드(제한) 적용
+        store.shield.applications = vm.selection.applicationTokens.isEmpty ? nil : vm.selection.applicationTokens
+        store.shield.applicationCategories = ShieldSettings.ActivityCategoryPolicy.specific(vm.selection.categoryTokens)
     }
     
+    //MARK: - 스케줄의 종료 시점 이후 처음으로 기기가 사용될 때 or 모니터링 중단 시에 호출되는 메서드
     override func intervalDidEnd(for activity: DeviceActivityName) {
         super.intervalDidEnd(for: activity)
         
         // Handle the end of the interval.
+        // 해당 store에 대해 적용되던 모든 실드 해제
+        store.clearAllSettings()
     }
     
     override func eventDidReachThreshold(_ event: DeviceActivityEvent.Name, activity: DeviceActivityName) {
