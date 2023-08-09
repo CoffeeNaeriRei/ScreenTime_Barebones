@@ -7,6 +7,7 @@
 
 import Foundation
 import DeviceActivity
+import ManagedSettings
 
 class DeviceActivityManager: ObservableObject {
     static let shared = DeviceActivityManager()
@@ -74,5 +75,10 @@ class DeviceActivityManager: ObservableObject {
 
 // MARK: - Schedule Name List
 extension DeviceActivityName {
+    static let dailySleep = Self("dailySleep")
+}
+
+// MARK: - MAnagedSettingsStore List
+extension ManagedSettingsStore.Name {
     static let dailySleep = Self("dailySleep")
 }

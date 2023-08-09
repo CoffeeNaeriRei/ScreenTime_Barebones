@@ -16,7 +16,6 @@
 		A9F327782A81CE8C0075CD7F /* MonitoringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327772A81CE8C0075CD7F /* MonitoringView.swift */; };
 		A9F3277B2A81D1410075CD7F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = A9F3277A2A81D1410075CD7F /* .swiftlint.yml */; };
 		A9F327832A81D7130075CD7F /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F327822A81D7130075CD7F /* DeviceActivity.framework */; };
-		A9F327862A81D7130075CD7F /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327852A81D7130075CD7F /* DeviceActivityMonitorExtension.swift */; };
 		A9F3278C2A81D7130075CD7F /* DeviceActivityMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A9F327802A81D7130075CD7F /* DeviceActivityMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A9F327AB2A81D81C0075CD7F /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9F327AA2A81D81C0075CD7F /* ManagedSettings.framework */; };
 		A9F327AE2A81D81C0075CD7F /* ShieldActionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327AD2A81D81C0075CD7F /* ShieldActionExtension.swift */; };
@@ -34,6 +33,7 @@
 		B84A0ABD2A83CFE800EA9571 /* TotalActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A0ABC2A83CFE800EA9571 /* TotalActivityReport.swift */; };
 		B84A0ABF2A83CFE800EA9571 /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A0ABE2A83CFE800EA9571 /* TotalActivityView.swift */; };
 		B84A0AC42A83CFE800EA9571 /* ScreenTimeReport.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = B84A0AB82A83CFE800EA9571 /* ScreenTimeReport.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B84A0ACA2A83DA2D00EA9571 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327852A81D7130075CD7F /* DeviceActivityMonitorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -591,7 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9F327862A81D7130075CD7F /* DeviceActivityMonitorExtension.swift in Sources */,
+				B84A0ACA2A83DA2D00EA9571 /* DeviceActivityMonitorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
