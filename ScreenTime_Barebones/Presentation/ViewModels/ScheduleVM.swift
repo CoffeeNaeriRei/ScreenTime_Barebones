@@ -9,6 +9,8 @@ import Foundation
 import FamilyControls
 import SwiftUI
 
+let APP_GROUP_NAME = "group.coffeenaerirei.screen_time_barebones"
+
 enum ScheduleSectionInfo {
     case time
     case apps
@@ -49,12 +51,12 @@ class ScheduleVM: ObservableObject {
     
     // 위의 @Published 변수를 @AppStorage 변수로 변경, 시작시간/종료시간 분리
     // MARK: - 스케쥴 설정을 위한 멤버 변수
-    @AppStorage("scheduleStartTime", store: UserDefaults(suiteName: "group.coffeenaerirei.screen_time_barebones"))
+    @AppStorage("scheduleStartTime", store: UserDefaults(suiteName: APP_GROUP_NAME))
     var scheduleStartTime = Date() // 현재 시간
-    @AppStorage("scheduleEndTime", store: UserDefaults(suiteName: "group.coffeenaerirei.screen_time_barebones"))
+    @AppStorage("scheduleEndTime", store: UserDefaults(suiteName: APP_GROUP_NAME))
     var scheduleEndTime = Date() + 900 // 현재 시간 + 15분
     // MARK: - 사용자가 설정한 앱/도메인을 담고 있는 멤버 변수
-    @AppStorage("selection", store: UserDefaults(suiteName: "group.coffeenaerirei.screen_time_barebones"))
+    @AppStorage("selection", store: UserDefaults(suiteName: APP_GROUP_NAME))
     var selection = FamilyActivitySelection()
 
     @Published var isFamilyActivitySectionActive = false
@@ -109,7 +111,7 @@ extension ScheduleVM {
     }
 }
 
-//MARK: - FamilyActivitySelection Parser
+// MARK: - FamilyActivitySelection Parser
 extension FamilyActivitySelection: RawRepresentable {
     public init?(rawValue: String) {
         guard let data = rawValue.data(using: .utf8),
@@ -129,7 +131,7 @@ extension FamilyActivitySelection: RawRepresentable {
         return result
     }
 }
-//MARK: - Date Parser
+// MARK: - Date Parser
 extension Date: RawRepresentable {
     public init?(rawValue: String) {
         guard let data = rawValue.data(using: .utf8),
