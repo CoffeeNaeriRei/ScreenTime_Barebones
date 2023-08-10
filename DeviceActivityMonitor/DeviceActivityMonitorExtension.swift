@@ -13,7 +13,7 @@ import ManagedSettings
 class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     let store = ManagedSettingsStore(named: .dailySleep)
     
-    //MARK: - 스케줄의 시작 시점 이후 처음으로 기기가 사용될 때 호출되는 메서드
+    // MARK: - 스케줄의 시작 시점 이후 처음으로 기기가 사용될 때 호출되는 메서드
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
         
@@ -24,7 +24,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         store.shield.applicationCategories = ShieldSettings.ActivityCategoryPolicy.specific(vm.selection.categoryTokens)
     }
     
-    //MARK: - 스케줄의 종료 시점 이후 처음으로 기기가 사용될 때 or 모니터링 중단 시에 호출되는 메서드
+    // MARK: - 스케줄의 종료 시점 이후 처음으로 기기가 사용될 때 or 모니터링 중단 시에 호출되는 메서드
     override func intervalDidEnd(for activity: DeviceActivityName) {
         super.intervalDidEnd(for: activity)
         
