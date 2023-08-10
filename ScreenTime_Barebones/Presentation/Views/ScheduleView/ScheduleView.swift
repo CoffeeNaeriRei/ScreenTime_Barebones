@@ -17,7 +17,7 @@ import FamilyControls
  */
 
 struct ScheduleView: View {
-    @StateObject var vm = ScheduleVM()
+    @ObservedObject var vm = ScheduleVM()
     
     var body: some View {
         NavigationView {
