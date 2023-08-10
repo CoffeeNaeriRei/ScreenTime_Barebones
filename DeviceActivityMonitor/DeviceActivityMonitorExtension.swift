@@ -11,7 +11,7 @@ import ManagedSettings
 // Optionally override any of the functions below.
 // Make sure that your class name matches the NSExtensionPrincipalClass in your Info.plist.
 class DeviceActivityMonitorExtension: DeviceActivityMonitor {
-    let store = ManagedSettingsStore(named: .dailySleep)
+    let store = ManagedSettingsStore(named: .daily)
     
     // MARK: - 스케줄의 시작 시점 이후 처음으로 기기가 사용될 때 호출되는 메서드
     override func intervalDidStart(for activity: DeviceActivityName) {

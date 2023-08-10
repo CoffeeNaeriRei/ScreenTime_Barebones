@@ -22,12 +22,12 @@ class DeviceActivityManager: ObservableObject {
     func handleStartDeviceActivityMonitoring(
         startTime: DateComponents,
         endTime: DateComponents,
-        deviceActivityName: DeviceActivityName = .dailySleep,
+        deviceActivityName: DeviceActivityName = .daily,
         warningTime: DateComponents = DateComponents(minute: 5) // TODO: - 알림 뺄 지 말 지 합의
     ) {
         let schedule: DeviceActivitySchedule
         
-        if deviceActivityName == .dailySleep {
+        if deviceActivityName == .daily {
             schedule = DeviceActivitySchedule(
                 intervalStart: startTime,
                 intervalEnd: endTime,
@@ -47,10 +47,10 @@ class DeviceActivityManager: ObservableObject {
 
 // MARK: - Schedule Name List
 extension DeviceActivityName {
-    static let dailySleep = Self("dailySleep")
+    static let daily = Self("daily")
 }
 
 // MARK: - MAnagedSettingsStore List
 extension ManagedSettingsStore.Name {
-    static let dailySleep = Self("dailySleep")
+    static let daily = Self("daily")
 }
