@@ -75,22 +75,16 @@ extension ScheduleView {
     /// 전체 리스트 중 시간 설정 섹션에 해당하는 뷰입니다.
     private func setUpTimeSectionView() -> some View {
         let TIME_LABEL_LIST = ["시작 시간", "종료 시간"]
+        let times = [$vm.scheduleStartTime, $vm.scheduleEndTime]
         
         return Section(
             header: Text(ScheduleSectionInfo.time.header),
             footer: Text(ScheduleSectionInfo.time.footer)) {
-                DatePicker(selection: $vm.scheduleStartTime, displayedComponents: .hourAndMinute) {
-                    Text(TIME_LABEL_LIST[0])
+                ForEach(0..<TIME_LABEL_LIST.count, id: \.self) { index in
+                    DatePicker(selection: times[index], displayedComponents: .hourAndMinute) {
+                        Text(TIME_LABEL_LIST[index])
+                    }
                 }
-                DatePicker(selection: $vm.scheduleEndTime, displayedComponents: .hourAndMinute) {
-                    Text(TIME_LABEL_LIST[1])
-                }
-                //TODO: - 확인 후 삭제
-//                ForEach(0..<TIME_LABEL_LIST.count, id: \.self) { index in
-//                    DatePicker(selection: $vm.times[index], displayedComponents: .hourAndMinute) {
-//                        Text(TIME_LABEL_LIST[index])
-//                    }
-//                }
             }
     }
     

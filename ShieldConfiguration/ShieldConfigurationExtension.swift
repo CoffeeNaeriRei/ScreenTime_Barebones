@@ -18,7 +18,9 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
         ShieldConfiguration()
     }
     
-    override func configuration(shielding application: Application, in category: ActivityCategory) -> ShieldConfiguration {
+    override func configuration(
+        shielding application: Application,
+        in category: ActivityCategory) -> ShieldConfiguration {
         // Customize the shield as needed for applications shielded because of their category.
         ShieldConfiguration()
     }
@@ -28,7 +30,9 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
         ShieldConfiguration()
     }
     
-    override func configuration(shielding webDomain: WebDomain, in category: ActivityCategory) -> ShieldConfiguration {
+    override func configuration(
+        shielding webDomain: WebDomain,
+        in category: ActivityCategory) -> ShieldConfiguration {
         // Customize the shield as needed for web domains shielded because of their category.
         ShieldConfiguration()
     }
