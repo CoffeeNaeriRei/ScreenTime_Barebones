@@ -43,6 +43,12 @@ class DeviceActivityManager: ObservableObject {
             }
         }
     }
+    
+    // MARK: - Device Activity 활동 모니터링을 중단하는 메서드
+    func handleStopDeviceActivityMonitoring() {
+        /// 모든 모니터링을 중단합니다.
+        deviceActivityCenter.stopMonitoring()
+    }
 }
 
 // MARK: - Schedule Name List

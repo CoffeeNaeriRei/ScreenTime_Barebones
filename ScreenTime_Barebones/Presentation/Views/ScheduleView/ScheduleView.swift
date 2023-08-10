@@ -67,6 +67,7 @@ extension ScheduleView {
         List {
             setUpTimeSectionView()
             setUPAppSectionView()
+            stopScheduleMonitoringSectionView()
             revokeAuthSectionView()
         }
         .listStyle(.insetGrouped)
@@ -85,7 +86,7 @@ extension ScheduleView {
                 DatePicker(selection: $vm.scheduleEndTime, displayedComponents: .hourAndMinute) {
                     Text(TIME_LABEL_LIST[1])
                 }
-                //TODO: - 확인 후 삭제
+                // TODO: - 확인 후 삭제
 //                ForEach(0..<TIME_LABEL_LIST.count, id: \.self) { index in
 //                    DatePicker(selection: $vm.times[index], displayedComponents: .hourAndMinute) {
 //                        Text(TIME_LABEL_LIST[index])
@@ -125,6 +126,27 @@ extension ScheduleView {
                     Label(token)
                 }
             }
+        }
+    }
+    
+    /// 전체 리스트 중 스케줄 모니터링 중단 섹션에 해당하는 뷰입니다.
+    private func stopScheduleMonitoringSectionView() -> some View {
+        Section(
+            header: Text(ScheduleSectionInfo.monitoring.header)
+        ) {
+            stopScheduleMonitoringButtonView()
+        }
+    }
+    
+    /// 스케줄 모니터링 중단 섹션의 버튼에 해당하는 버튼입니다.
+    private func stopScheduleMonitoringButtonView() -> some View {
+        let BUTTON_LABEL = "스케줄 모니터링 중단"
+        
+        return Button {
+            vm.stopScheduleMonitoring()
+        } label: {
+            Text(BUTTON_LABEL)
+                .tint(Color.red)
         }
     }
     
