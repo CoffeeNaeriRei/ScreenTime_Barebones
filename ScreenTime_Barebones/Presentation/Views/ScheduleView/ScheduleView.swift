@@ -79,11 +79,18 @@ extension ScheduleView {
         return Section(
             header: Text(ScheduleSectionInfo.time.header),
             footer: Text(ScheduleSectionInfo.time.footer)) {
-                ForEach(0..<TIME_LABEL_LIST.count, id: \.self) { index in
-                    DatePicker(selection: $vm.times[index], displayedComponents: .hourAndMinute) {
-                        Text(TIME_LABEL_LIST[index])
-                    }
+                DatePicker(selection: $vm.scheduleStartTime, displayedComponents: .hourAndMinute) {
+                    Text(TIME_LABEL_LIST[0])
                 }
+                DatePicker(selection: $vm.scheduleEndTime, displayedComponents: .hourAndMinute) {
+                    Text(TIME_LABEL_LIST[1])
+                }
+                //TODO: - 확인 후 삭제
+//                ForEach(0..<TIME_LABEL_LIST.count, id: \.self) { index in
+//                    DatePicker(selection: $vm.times[index], displayedComponents: .hourAndMinute) {
+//                        Text(TIME_LABEL_LIST[index])
+//                    }
+//                }
             }
     }
     

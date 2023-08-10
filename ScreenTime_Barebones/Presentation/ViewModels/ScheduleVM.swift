@@ -7,6 +7,7 @@
 
 import Foundation
 import FamilyControls
+import SwiftUI
 
 enum ScheduleSectionInfo {
     case time
@@ -37,10 +38,20 @@ enum ScheduleSectionInfo {
 }
 
 class ScheduleVM: ObservableObject {
-    // MARK: - 스케쥴 설정을 위한 멤버 변수 [현재 시간, + 15분]
-    @Published var times: [Date] = [Date(), Date() + 900]
+    // TODO: - 확인 후 주석 삭제
+//    @Published var times: [Date] = [Date(), Date() + 900]
+//    @Published var selection = FamilyActivitySelection()
+    
+    // 위의 @Published 변수를 @AppStorage 변수로 변경, 시작시간/종료시간 분리
+    // MARK: - 스케쥴 설정을 위한 멤버 변수
+    @AppStorage("scheduleStartTime", store: UserDefaults(suiteName: "group.coffeenaerirei.screen_time_barebones"))
+    var scheduleStartTime = Date() // 현재 시간
+    @AppStorage("scheduleEndTime", store: UserDefaults(suiteName: "group.coffeenaerirei.screen_time_barebones"))
+    var scheduleEndTime = Date() + 900 // 현재 시간 + 15분
     // MARK: - 사용자가 설정한 앱/도메인을 담고 있는 멤버 변수
-    @Published var selection = FamilyActivitySelection()
+    @AppStorage("selection", store: UserDefaults(suiteName: "group.coffeenaerirei.screen_time_barebones"))
+    var selection = FamilyActivitySelection()
+
     @Published var isFamilyActivitySectionActive = false
     @Published var isSaveAlertActive = false
     @Published var isRevokeAlertActive = false
@@ -72,8 +83,11 @@ extension ScheduleVM {
     /// 설정한 시간 DeviceActivityManager를 통해 전달하여 설정한 시간을 모니터링할 수 있습니다.
     /// 모니터링을 등록하면 DeviceActivityMonitorExtension를 활용해 특정 시점의 이벤트를 감지할 수 있습니다.
     func saveSchedule() {
-        let startTime = Calendar.current.dateComponents([.hour, .minute], from: times[0])
-        let endTime = Calendar.current.dateComponents([.hour, .minute], from: times[1])
+        // TODO: - 확인 후 주석 삭제
+//        let startTime = Calendar.current.dateComponents([.hour, .minute], from: times[0])
+//        let endTime = Calendar.current.dateComponents([.hour, .minute], from: times[1])
+        let startTime = Calendar.current.dateComponents([.hour, .minute], from: scheduleStartTime)
+        let endTime = Calendar.current.dateComponents([.hour, .minute], from: scheduleEndTime)
         
         DeviceActivityManager.shared.handleStartDeviceActivityMonitoring(
             startTime: startTime,
@@ -81,5 +95,46 @@ extension ScheduleVM {
         )
         
         isSaveAlertActive = true
+    }
+}
+
+//MARK: - FamilyActivitySelection Parser
+extension FamilyActivitySelection: RawRepresentable {
+    public init?(rawValue: String) {
+        guard let data = rawValue.data(using: .utf8),
+            let result = try? JSONDecoder().decode(FamilyActivitySelection.self, from: data)
+        else {
+            return nil
+        }
+        self = result
+    }
+
+    public var rawValue: String {
+        guard let data = try? JSONEncoder().encode(self),
+            let result = String(data: data, encoding: .utf8)
+        else {
+            return "[]"
+        }
+        return result
+    }
+}
+//MARK: - Date Parser
+extension Date: RawRepresentable {
+    public init?(rawValue: String) {
+        guard let data = rawValue.data(using: .utf8),
+            let result = try? JSONDecoder().decode(Date.self, from: data)
+        else {
+            return nil
+        }
+        self = result
+    }
+
+    public var rawValue: String {
+        guard let data = try? JSONEncoder().encode(self),
+            let result = String(data: data, encoding: .utf8)
+        else {
+            return "[]"
+        }
+        return result
     }
 }
