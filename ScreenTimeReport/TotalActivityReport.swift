@@ -2,7 +2,7 @@
 //  TotalActivityReport.swift
 //  ScreenTimeReport
 //
-//  Created by 김영빈 on 2023/08/08.
+//  Created by 김영빈 on 2023/08/09.
 //
 
 import DeviceActivity
