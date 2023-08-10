@@ -9,76 +9,54 @@ import Foundation
 import DeviceActivity
 import ManagedSettings
 
+// MARK: - 모니터링 관련 동작을 제어하는 클래스
 class DeviceActivityManager: ObservableObject {
     static let shared = DeviceActivityManager()
     private init() {}
     
+    /// DeviceActivityCenter는 설정한 스케줄에 대한 모니터링을 제어해주는 클래스입니다.
+    /// 모니터링 시작 및 중단 등의 동작 처리를 위해 인스턴스를 생성해줍니다.
     let deviceActivityCenter = DeviceActivityCenter()
     
+    // MARK: - Device Activity 활동 모니터링을 시작하는 메서드
     func handleStartDeviceActivityMonitoring(
         startTime: DateComponents,
         endTime: DateComponents,
-        deviceActivityName: DeviceActivityName = .dailySleep,
-        warningTime: DateComponents = DateComponents(minute: 5) // 5분 전 알림
+        deviceActivityName: DeviceActivityName = .daily,
+        warningTime: DateComponents = DateComponents(minute: 5) // TODO: - 알림 뺄 지 말 지 합의
     ) {
         let schedule: DeviceActivitySchedule
         
-        // MARK: 기본 수면계획 스케줄일 경우
-        if deviceActivityName == .dailySleep {
+        if deviceActivityName == .daily {
             schedule = DeviceActivitySchedule(
                 intervalStart: startTime,
                 intervalEnd: endTime,
                 repeats: true,
                 warningTime: warningTime
             )
-        } else {
-            // MARK: 추가시간 15분 스케줄일 경우
-            let currentDateComponents = Calendar.current.dateComponents(
-                [.hour, .minute, .second],
-                from: Date()
-            )
-            let startHour = currentDateComponents.hour ?? 0
-            let startMinute  = currentDateComponents.minute ?? 0
-            var endHour = startHour + 0
             
-            var endMinute = startMinute + 15 // 추가 시간 설정
-            if endMinute >= 60 {
-                endMinute -= 60
-                endHour += 1
+            do {
+                /// deviceActivityName 인자로 받은 이름의 Device Activity에 대해 schedule로 입력받은 기간의 모니터링을 시작합니다.
+                try deviceActivityCenter.startMonitoring(deviceActivityName, during: schedule)
+            } catch {
+                print("Unexpected error: \(error).")
             }
-            if endHour > 23 {
-                endHour = 23
-                endMinute = 59
-            }
-            print("Additional time schedule: \(startHour):\(startMinute) ~ \(endHour):\(endMinute)")
-            
-            // (추가시간 종료 시점 ~ 수면 종료 시간)의 새로운 스케줄 생성하기
-            schedule = DeviceActivitySchedule(
-                intervalStart: DateComponents(hour: endHour, minute: endMinute),
-                intervalEnd: endTime,
-                repeats: false,
-                warningTime: warningTime // 종료 5분 전에 알림
-            )
-            
         }
-        
-        do {
-            print("Stop monitoring... --> \(deviceActivityCenter.activities.description)")
-            deviceActivityCenter.stopMonitoring()
-            try deviceActivityCenter.startMonitoring(deviceActivityName, during: schedule)
-            print("Start monitoring... --> \(deviceActivityCenter.activities.description)")
-        } catch {
-            print("Unexpected error: \(error).")
-        }
+    }
+    
+    // MARK: - Device Activity 활동 모니터링을 중단하는 메서드
+    func handleStopDeviceActivityMonitoring() {
+        /// 모든 모니터링을 중단합니다.
+        deviceActivityCenter.stopMonitoring()
     }
 }
 
 // MARK: - Schedule Name List
 extension DeviceActivityName {
-    static let dailySleep = Self("dailySleep")
+    static let daily = Self("daily")
 }
 
 // MARK: - MAnagedSettingsStore List
 extension ManagedSettingsStore.Name {
-    static let dailySleep = Self("dailySleep")
+    static let daily = Self("daily")
 }
