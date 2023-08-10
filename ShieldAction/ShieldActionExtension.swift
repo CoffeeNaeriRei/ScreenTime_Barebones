@@ -21,7 +21,6 @@ class ShieldActionExtension: ShieldActionDelegate {
     ///  - .secondaryButtonPressed: ShieldConfiguration의 secondaryButtonLabel에 해당됩니다.
     /// * case를 구분하지 않거나, 사용하지 않을 경우, 모든 버튼 클릭 시 동작하도록 할 수 있습니다.
     /// * ShieldConfiguration로 설정 된 secondaryButtonLabel이 없을 경우, 해당 case를 사용할 수 없습니다.
-    /// ShieldAction - https://developer.apple.com/documentation/managedsettings/shieldaction
     override func handle(
         action: ShieldAction,
         for application: ApplicationToken,
