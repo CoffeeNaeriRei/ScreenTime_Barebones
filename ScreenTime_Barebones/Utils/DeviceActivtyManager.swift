@@ -75,5 +75,4 @@ class DeviceActivityManager: ObservableObject {
 // MARK: - Schedule Name List
 extension DeviceActivityName {
     static let dailySleep = Self("dailySleep")
-    static let additionalTime = Self("additionalTime")
 }
