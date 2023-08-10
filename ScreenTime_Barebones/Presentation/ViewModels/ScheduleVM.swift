@@ -9,9 +9,12 @@ import Foundation
 import FamilyControls
 import SwiftUI
 
+let APP_GROUP_NAME = "group.coffeenaerirei.screen_time_barebones"
+
 enum ScheduleSectionInfo {
     case time
     case apps
+    case monitoring
     case revoke
     
     var header: String {
@@ -20,6 +23,8 @@ enum ScheduleSectionInfo {
             return "setup Time"
         case .apps:
             return "setup Apps"
+        case .monitoring:
+            return "stop Schedule Monitoring"
         case .revoke:
             return "Revoke Authorization"
         }
@@ -31,6 +36,8 @@ enum ScheduleSectionInfo {
             return "시작 시간과 종료 시간을 설정하여 앱 사용을 제한하고자 하는\n스케쥴 시간을 설정할 수 있습니다."
         case .apps:
             return "변경하기 버튼을 눌러 선택한 시간 동안 사용을 제한하고 싶은\n앱 및 웹 도메인을 선택할 수 있습니다."
+        case .monitoring:
+            return "현재 모니터링 중인 스케줄의 모니터링을 중단합니다."
         case .revoke:
             return ""
         }
@@ -44,12 +51,12 @@ class ScheduleVM: ObservableObject {
     
     // 위의 @Published 변수를 @AppStorage 변수로 변경, 시작시간/종료시간 분리
     // MARK: - 스케쥴 설정을 위한 멤버 변수
-    @AppStorage("scheduleStartTime", store: UserDefaults(suiteName: "group.coffeenaerirei.screen_time_barebones"))
+    @AppStorage("scheduleStartTime", store: UserDefaults(suiteName: APP_GROUP_NAME))
     var scheduleStartTime = Date() // 현재 시간
-    @AppStorage("scheduleEndTime", store: UserDefaults(suiteName: "group.coffeenaerirei.screen_time_barebones"))
+    @AppStorage("scheduleEndTime", store: UserDefaults(suiteName: APP_GROUP_NAME))
     var scheduleEndTime = Date() + 900 // 현재 시간 + 15분
     // MARK: - 사용자가 설정한 앱/도메인을 담고 있는 멤버 변수
-    @AppStorage("selection", store: UserDefaults(suiteName: "group.coffeenaerirei.screen_time_barebones"))
+    @AppStorage("selection", store: UserDefaults(suiteName: APP_GROUP_NAME))
     var selection = FamilyActivitySelection()
 
     @Published var isFamilyActivitySectionActive = false
@@ -96,9 +103,15 @@ extension ScheduleVM {
         
         isSaveAlertActive = true
     }
+    
+    // MARK: - 스케줄 모니터링 중단
+    /// 현재 모니터링 중이던 스케줄의 모니터링을 중단합니다.
+    func stopScheduleMonitoring() {
+        DeviceActivityManager.shared.handleStopDeviceActivityMonitoring()
+    }
 }
 
-//MARK: - FamilyActivitySelection Parser
+// MARK: - FamilyActivitySelection Parser
 extension FamilyActivitySelection: RawRepresentable {
     public init?(rawValue: String) {
         guard let data = rawValue.data(using: .utf8),
@@ -118,7 +131,7 @@ extension FamilyActivitySelection: RawRepresentable {
         return result
     }
 }
-//MARK: - Date Parser
+// MARK: - Date Parser
 extension Date: RawRepresentable {
     public init?(rawValue: String) {
         guard let data = rawValue.data(using: .utf8),
