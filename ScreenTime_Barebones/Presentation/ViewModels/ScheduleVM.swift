@@ -62,6 +62,7 @@ class ScheduleVM: ObservableObject {
     @Published var isFamilyActivitySectionActive = false
     @Published var isSaveAlertActive = false
     @Published var isRevokeAlertActive = false
+    @Published var isStopMonitoringAlertActive = false
 }
 
 extension ScheduleVM {
@@ -108,6 +109,13 @@ extension ScheduleVM {
     /// 현재 모니터링 중이던 스케줄의 모니터링을 중단합니다.
     func stopScheduleMonitoring() {
         DeviceActivityManager.shared.handleStopDeviceActivityMonitoring()
+    }
+    
+    // MARK: - 스케줄 모니터링 중단 alert 열기
+    /// 호출 시 모니터링을 중단할 수 있는 alert을 열어
+    /// 현재 모니터링 중인 스케줄의 모니터링을 중단할 수 있습니다.
+    func showStopMonitoringAlert() {
+        isStopMonitoringAlertActive = true
     }
 }
 
