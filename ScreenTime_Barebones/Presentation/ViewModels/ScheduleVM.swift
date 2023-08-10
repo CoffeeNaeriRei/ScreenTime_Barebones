@@ -45,11 +45,6 @@ enum ScheduleSectionInfo {
 }
 
 class ScheduleVM: ObservableObject {
-    // TODO: - 확인 후 주석 삭제
-//    @Published var times: [Date] = [Date(), Date() + 900]
-//    @Published var selection = FamilyActivitySelection()
-    
-    // 위의 @Published 변수를 @AppStorage 변수로 변경, 시작시간/종료시간 분리
     // MARK: - 스케쥴 설정을 위한 멤버 변수
     @AppStorage("scheduleStartTime", store: UserDefaults(suiteName: APP_GROUP_NAME))
     var scheduleStartTime = Date() // 현재 시간
@@ -91,9 +86,6 @@ extension ScheduleVM {
     /// 설정한 시간 DeviceActivityManager를 통해 전달하여 설정한 시간을 모니터링할 수 있습니다.
     /// 모니터링을 등록하면 DeviceActivityMonitorExtension를 활용해 특정 시점의 이벤트를 감지할 수 있습니다.
     func saveSchedule() {
-        // TODO: - 확인 후 주석 삭제
-//        let startTime = Calendar.current.dateComponents([.hour, .minute], from: times[0])
-//        let endTime = Calendar.current.dateComponents([.hour, .minute], from: times[1])
         let startTime = Calendar.current.dateComponents([.hour, .minute], from: scheduleStartTime)
         let endTime = Calendar.current.dateComponents([.hour, .minute], from: scheduleEndTime)
         

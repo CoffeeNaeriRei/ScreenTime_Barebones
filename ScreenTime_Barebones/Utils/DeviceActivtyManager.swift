@@ -19,11 +19,14 @@ class DeviceActivityManager: ObservableObject {
     let deviceActivityCenter = DeviceActivityCenter()
     
     // MARK: - Device Activity 활동 모니터링을 시작하는 메서드
+    /// warningTime을 활용하여, 특정 이벤트 시점 전에 알림을 줄 수도 있습니다.
+    /// 알림 기능을 활용한 스크린타임 프로젝트인  아래 링크를 참조해보세요.
+    /// https://github.com/DeveloperAcademy-POSTECH/MC2-Team18-sunghoyazaza
     func handleStartDeviceActivityMonitoring(
         startTime: DateComponents,
         endTime: DateComponents,
         deviceActivityName: DeviceActivityName = .daily,
-        warningTime: DateComponents = DateComponents(minute: 5) // TODO: - 알림 뺄 지 말 지 합의
+        warningTime: DateComponents = DateComponents(minute: 5)
     ) {
         let schedule: DeviceActivitySchedule
         
