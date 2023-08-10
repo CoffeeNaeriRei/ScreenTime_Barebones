@@ -12,16 +12,23 @@ import ManagedSettings
 // Make sure that your class name matches the NSExtensionPrincipalClass in your Info.plist.
 class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     let store = ManagedSettingsStore(named: .daily)
+    let vm = ScheduleVM()
     
     // MARK: - 스케줄의 시작 시점 이후 처음으로 기기가 사용될 때 호출되는 메서드
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
         
-        var vm = ScheduleVM()
         // Handle the start of the interval.
         // FamilyActivityPicker로 선택한 앱들에 실드(제한) 적용
-        store.shield.applications = vm.selection.applicationTokens.isEmpty ? nil : vm.selection.applicationTokens
-        store.shield.applicationCategories = ShieldSettings.ActivityCategoryPolicy.specific(vm.selection.categoryTokens)
+        let appTokens = vm.selection.applicationTokens
+        let categoryTokens = vm.selection.categoryTokens
+        
+        if appTokens.isEmpty {
+            store.shield.applications = nil
+        } else {
+            store.shield.applications = appTokens
+        }
+        store.shield.applicationCategories = ShieldSettings.ActivityCategoryPolicy.specific(categoryTokens)
     }
     
     // MARK: - 스케줄의 종료 시점 이후 처음으로 기기가 사용될 때 or 모니터링 중단 시에 호출되는 메서드

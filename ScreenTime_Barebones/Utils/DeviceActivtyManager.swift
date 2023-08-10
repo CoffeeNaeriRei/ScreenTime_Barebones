@@ -38,6 +38,12 @@ class DeviceActivityManager: ObservableObject {
             do {
                 /// deviceActivityName 인자로 받은 이름의 Device Activity에 대해 schedule로 입력받은 기간의 모니터링을 시작합니다.
                 try deviceActivityCenter.startMonitoring(deviceActivityName, during: schedule)
+                /// 디버깅용 주석입니다.
+                /// 현재 모니터링중인 DeviceActivityName과 스케줄을 확인할 수 있습니다.
+//                print("\n\n")
+//                print("모니터링 시작 --> \(deviceActivityCenter.activities.description)")
+//                print("스케줄 --> \(schedule)")
+//                print("\n\n")
             } catch {
                 print("Unexpected error: \(error).")
             }
@@ -48,6 +54,9 @@ class DeviceActivityManager: ObservableObject {
     func handleStopDeviceActivityMonitoring() {
         /// 모든 모니터링을 중단합니다.
         deviceActivityCenter.stopMonitoring()
+//        print("\n\n")
+//        print("모니터링 중단 --> \(deviceActivityCenter.activities.description)")
+//        print("\n\n")
     }
 }
 
