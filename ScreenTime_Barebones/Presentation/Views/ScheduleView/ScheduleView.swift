@@ -29,8 +29,18 @@ struct ScheduleView: View {
             .toolbar { savePlanButtonView() }
             .navigationTitle("Schedule")
             .navigationBarTitleDisplayMode(.inline)
+            .familyActivityPicker(
+                isPresented: $vm.isFamilyActivitySectionActive,
+                selection: $vm.selection
+            )
             .alert("저장 되었습니다.", isPresented: $vm.isSaveAlertActive) {
                 Button("OK", role: .cancel) {}
+            }
+            .alert("권한 제거 시 스케쥴도 함께 제거됩니다.", isPresented: $vm.isRevokeAlertActive) {
+                Button("취소", role: .cancel) {}
+                Button("확인", role: .destructive) {
+                    FamilyControlsManager.shared.requestAuthorizationRevoke()
+                }
             }
         }
     }
@@ -39,6 +49,7 @@ struct ScheduleView: View {
 // MARK: - Views
 extension ScheduleView {
     
+    /// 스케쥴 페이지 우측 툴바 상단 버튼입니다.
     private func savePlanButtonView() -> ToolbarItemGroup<Button<Text>> {
         ToolbarItemGroup(placement: .navigationBarTrailing) {
             let BUTTON_LABEL = "스케쥴 저장"
@@ -51,7 +62,7 @@ extension ScheduleView {
         }
     }
     
-    // MARK: - Settings List View
+    /// 스케쥴 페이지 내 전체 리스트 뷰입니다.
     private func setupListView() -> some View {
         List {
             setUpTimeSectionView()
@@ -61,6 +72,7 @@ extension ScheduleView {
         .listStyle(.insetGrouped)
     }
     
+    /// 전체 리스트 중 시간 설정 섹션에 해당하는 뷰입니다.
     private func setUpTimeSectionView() -> some View {
         let TIME_LABEL_LIST = ["시작 시간", "종료 시간"]
         
@@ -75,6 +87,7 @@ extension ScheduleView {
             }
     }
     
+    /// 전체 리스트 중 앱 설정 섹션에 해당하는 뷰입니다.
     private func setUPAppSectionView() -> some View {
         let BUTTON_LABEL = "변경"
         let EMPTY_TEXT = "Choose Your App"
@@ -88,10 +101,6 @@ extension ScheduleView {
                 } label: {
                     Text(BUTTON_LABEL)
                 }
-                .familyActivityPicker(
-                    isPresented: $vm.isFamilyActivitySectionActive,
-                    selection: $vm.selection
-                )
             },
             footer: Text(ScheduleSectionInfo.apps.footer)
         ) {
@@ -112,6 +121,7 @@ extension ScheduleView {
         }
     }
     
+    /// 전체 리스트 중 권한 제거 섹션에 해당하는 뷰입니다.
     private func revokeAuthSectionView() -> some View {
         Section(
             header: Text(ScheduleSectionInfo.revoke.header)
@@ -120,26 +130,17 @@ extension ScheduleView {
         }
     }
     
+    /// 권한 제거 섹션의 버튼에 해당하는 버튼입니다.
+    /// 버튼 클릭 시 alert 창을 통해 스크린 타임 권한을 제거할 수 있습니다.
     private func revokeAuthButtonView() -> some View {
         let BUTTON_LABEL = "스크린 타임 권한 제거"
         
         return Button {
-            FamilyControlsManager.shared.requestAuthorizationRevoke()
+            vm.showRevokeAlert()
         } label: {
             Text(BUTTON_LABEL)
                 .tint(Color.red)
         }
-    }
-    
-    private func checkAuthStatusButtonView() -> some View {
-        let BUTTON_LABEL = "권한 확인하기"
-        
-        return Button {
-            print(FamilyControlsManager.shared.requestAuthorizationStatus())
-        } label: {
-            Text(BUTTON_LABEL)
-        }
-        .buttonStyle(.borderedProminent)
     }
 }
 
