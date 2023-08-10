@@ -17,7 +17,7 @@ import FamilyControls
  */
 
 struct ScheduleView: View {
-    @StateObject var vm = ScheduleVM()
+    @ObservedObject var vm = ScheduleVM()
     
     var body: some View {
         NavigationView {
@@ -40,6 +40,12 @@ struct ScheduleView: View {
                 Button("취소", role: .cancel) {}
                 Button("확인", role: .destructive) {
                     FamilyControlsManager.shared.requestAuthorizationRevoke()
+                }
+            }
+            .alert("모니터링을 중단하시겠습니까?", isPresented: $vm.isStopMonitoringAlertActive) {
+                Button("취소", role: .cancel) {}
+                Button("확인", role: .destructive) {
+                    vm.stopScheduleMonitoring()
                 }
             }
         }
@@ -137,7 +143,7 @@ extension ScheduleView {
         let BUTTON_LABEL = "스케줄 모니터링 중단"
         
         return Button {
-            vm.stopScheduleMonitoring()
+            vm.showStopMonitoringAlert()
         } label: {
             Text(BUTTON_LABEL)
                 .tint(Color.red)
