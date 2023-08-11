@@ -38,6 +38,7 @@ struct TotalActivityReport: DeviceActivityReportScene {
             $0 + $1.totalActivityDuration
         })
         
+        /// DeviceActivityResults 데이터에서 화면에 보여주기 위해 필요한 내용을 추출해줍니다.
         for await d in data {
             totalScreenTime += d.user.appleID!.debugDescription
             totalScreenTime += d.lastUpdatedDate.description
