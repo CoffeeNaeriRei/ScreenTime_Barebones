@@ -25,20 +25,43 @@ struct TotalActivityReport: DeviceActivityReportScene {
     
     // Define the custom configuration and the resulting view for this report.
     /// 어떤 데이터를 사용해서 어떤 뷰를 보여줄 지 정의해줍니다. (SwiftUI View)
-    let content: (String) -> TotalActivityView
+    let content: (ActivityReport) -> TotalActivityView
     
     /// DeviceActivityResults 데이터를 받아서 필터링
-    func makeConfiguration(representing data: DeviceActivityResults<DeviceActivityData>) async -> String {
+    func makeConfiguration(representing data: DeviceActivityResults<DeviceActivityData>) async -> ActivityReport {
         // Reformat the data into a configuration that can be used to create
         // the report's view.
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.day, .hour, .minute, .second]
-        formatter.unitsStyle = .abbreviated
-        formatter.zeroFormattingBehavior = .dropAll
+        var totalScreenTime = "" /// 총 스크린 타임 시간
+        var list: [AppDeviceActivity] = [] /// 사용 앱 리스트
         
         let totalActivityDuration = await data.flatMap { $0.activitySegments }.reduce(0, {
             $0 + $1.totalActivityDuration
         })
-        return formatter.string(from: totalActivityDuration) ?? "No activity data"
+        
+        for await d in data {
+            totalScreenTime += d.user.appleID!.debugDescription
+            totalScreenTime += d.lastUpdatedDate.description
+            for await activitySegment in d.activitySegments {
+                totalScreenTime += activitySegment.totalActivityDuration.formatted()
+                for await category in activitySegment.categories {
+                    for await application in category.applications {
+                        let appName = (application.application.localizedDisplayName ?? "nil")
+                        let bundle = (application.application.bundleIdentifier ?? "nil")
+                        let duration = application.totalActivityDuration
+                        let numberOfPickups = application.numberOfPickups
+                        let app = AppDeviceActivity(
+                            id: bundle,
+                            displayName: appName,
+                            duration: duration,
+                            numberOfPickups: numberOfPickups)
+                        list.append(app)
+                    }
+                }
+                
+            }
+        }
+        
+        /// 필터링된 ActivityReport 데이터들을 반환
+        return ActivityReport(totalDuration: totalActivityDuration, apps: list)
     }
 }
