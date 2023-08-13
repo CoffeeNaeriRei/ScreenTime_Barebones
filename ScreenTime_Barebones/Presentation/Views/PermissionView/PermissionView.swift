@@ -8,25 +8,24 @@
 import SwiftUI
 
 struct PermissionView: View {
-    @State private var isShow = false
+    @StateObject private var vm = PermissionVM()
     
     var body: some View {
         VStack(alignment: .center) {
             navigationHeaderLikeView()
             decorationView()
-            permissionView()
+            permissionButtonView()
         }
         .frame(
             maxWidth: .infinity,
             maxHeight: .infinity,
             alignment: .top
         )
+        .sheet(isPresented: $vm.isSheetActive) {
+            sheetView()
+        }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                withAnimation {
-                    isShow = true
-                }
-            }
+            vm.handleTranslationView()
         }
     }
 }
@@ -36,9 +35,9 @@ extension PermissionView {
     private func navigationHeaderLikeView() -> some View {
         HStack {
             Button {
-                print("dd")
+                vm.showIsSheetActive()
             } label: {
-                Image(systemName: "info.circle.fill")
+                Image(systemName: vm.HEADER_ICON_LABEL)
                     .resizable()
                     .frame(width: 20, height: 20)
                     .foregroundColor(.secondary)
@@ -47,20 +46,20 @@ extension PermissionView {
         }
         .padding(8)
         .frame(maxWidth: .infinity, maxHeight: 42, alignment: .trailing)
-        .opacity(isShow ? 1 : 0)
+        .opacity(vm.isViewLoaded ? 1 : 0)
     }
     
     private func decorationView() -> some View {
         VStack(spacing: 12) {
-            Image("AppSymbol")
+            Image(vm.DECORATION_TEXT_INFO.imgSrc)
                 .resizable()
                 .frame(width: 100, height: 100)
-            if isShow {
-                Text("Screen Time 101")
+            if vm.isViewLoaded {
+                Text(vm.DECORATION_TEXT_INFO.title)
                     .font(.largeTitle)
                     .foregroundColor(Color.primaryColor)
                     .bold()
-                Text("Screen Time API의\n기본적인 기능을 알아봅시다.")
+                Text(vm.DECORATION_TEXT_INFO.subTitle)
                     .font(.body)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.secondary)
@@ -69,20 +68,35 @@ extension PermissionView {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
-    private func permissionView() -> some View {
+    private func permissionButtonView() -> some View {
         HStack {
             Button {
-                DispatchQueue.main.async {
-                    FamilyControlsManager.shared.requestAuthorization()
-                }
+                vm.handleRequestAuthorization()
             } label: {
-                Text("시작하기")
+                Text(vm.PERMISSION_BUTTON_LABEL)
             }
             .buttonStyle(.borderless)
         }
         .padding(24)
         .frame(maxWidth: .infinity, maxHeight: 128)
-        .opacity(isShow ? 1 : 0)
+        .opacity(vm.isViewLoaded ? 1 : 0)
+    }
+    
+    private func sheetView() -> some View {
+        VStack {
+            Text(vm.SHEET_INFO_LIST[0])
+                .multilineTextAlignment(.center)
+                .padding(.bottom, 24)
+                .font(.title2)
+            Text(vm.SHEET_INFO_LIST[1])
+                .multilineTextAlignment(.center)
+                .foregroundColor(.secondary)
+                .padding(.bottom, 24)
+                .font(.body)
+            Text(.init(vm.GIT_LINK_LABEL))
+                .font(.title3)
+        }
+        .padding(24)
     }
 }
 
