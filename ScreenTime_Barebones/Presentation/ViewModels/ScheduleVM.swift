@@ -9,8 +9,6 @@ import Foundation
 import FamilyControls
 import SwiftUI
 
-let APP_GROUP_NAME = "group.coffeenaerirei.screen_time_barebones"
-
 enum ScheduleSectionInfo {
     case time
     case apps
@@ -46,12 +44,12 @@ enum ScheduleSectionInfo {
 
 class ScheduleVM: ObservableObject {
     // MARK: - 스케쥴 설정을 위한 멤버 변수
-    @AppStorage("scheduleStartTime", store: UserDefaults(suiteName: APP_GROUP_NAME))
+    @AppStorage("scheduleStartTime", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var scheduleStartTime = Date() // 현재 시간
-    @AppStorage("scheduleEndTime", store: UserDefaults(suiteName: APP_GROUP_NAME))
+    @AppStorage("scheduleEndTime", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var scheduleEndTime = Date() + 900 // 현재 시간 + 15분
     // MARK: - 사용자가 설정한 앱/도메인을 담고 있는 멤버 변수
-    @AppStorage("selection", store: UserDefaults(suiteName: APP_GROUP_NAME))
+    @AppStorage("selection", store: UserDefaults(suiteName: Bundle.main.appGroupName))
     var selection = FamilyActivitySelection()
 
     @Published var isFamilyActivitySectionActive = false

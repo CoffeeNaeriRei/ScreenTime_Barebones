@@ -1,0 +1,12 @@
+//
+//  shared.xcconfig
+//  ScreenTime_Barebones
+//
+//  Created by Yun Dongbeom on 2023/08/11.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// App Group
+APP_GROUP_NAME = "group.coffeenaerirei.screen_time_barebones"

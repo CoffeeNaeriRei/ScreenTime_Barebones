@@ -10,6 +10,16 @@
 		A9E344212A851AD7002288F8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E344202A851AD7002288F8 /* Color+Extension.swift */; };
 		A9E344222A851B9A002288F8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E344202A851AD7002288F8 /* Color+Extension.swift */; };
 		A9E344242A852AC7002288F8 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E344232A852AC7002288F8 /* AppIcon.png */; };
+		A9E344272A85D532002288F8 /* shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9E344262A85D532002288F8 /* shared.xcconfig */; };
+		A9E344282A85D532002288F8 /* shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9E344262A85D532002288F8 /* shared.xcconfig */; };
+		A9E344292A85D532002288F8 /* shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9E344262A85D532002288F8 /* shared.xcconfig */; };
+		A9E3442A2A85D532002288F8 /* shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9E344262A85D532002288F8 /* shared.xcconfig */; };
+		A9E3442B2A85D532002288F8 /* shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9E344262A85D532002288F8 /* shared.xcconfig */; };
+		A9E3442E2A85D66D002288F8 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3442D2A85D66D002288F8 /* Bundle+Extension.swift */; };
+		A9E3442F2A85D679002288F8 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3442D2A85D66D002288F8 /* Bundle+Extension.swift */; };
+		A9E344302A85D67A002288F8 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3442D2A85D66D002288F8 /* Bundle+Extension.swift */; };
+		A9E344312A85D67A002288F8 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3442D2A85D66D002288F8 /* Bundle+Extension.swift */; };
+		A9E344322A85D67B002288F8 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3442D2A85D66D002288F8 /* Bundle+Extension.swift */; };
 		A9F327602A80DFDD0075CD7F /* ScreenTime_BarebonesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F3275F2A80DFDD0075CD7F /* ScreenTime_BarebonesApp.swift */; };
 		A9F327622A80DFDD0075CD7F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327612A80DFDD0075CD7F /* ContentView.swift */; };
 		A9F327642A80DFDF0075CD7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9F327632A80DFDF0075CD7F /* Assets.xcassets */; };
@@ -103,6 +113,9 @@
 /* Begin PBXFileReference section */
 		A9E344202A851AD7002288F8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		A9E344232A852AC7002288F8 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		A9E344262A85D532002288F8 /* shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = shared.xcconfig; sourceTree = "<group>"; };
+		A9E3442C2A85D605002288F8 /* ScreenTime-Barebones-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ScreenTime-Barebones-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A9E3442D2A85D66D002288F8 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		A9F3275C2A80DFDD0075CD7F /* ScreenTime_Barebones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenTime_Barebones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F3275F2A80DFDD0075CD7F /* ScreenTime_BarebonesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTime_BarebonesApp.swift; sourceTree = "<group>"; };
 		A9F327612A80DFDD0075CD7F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -188,8 +201,17 @@
 			isa = PBXGroup;
 			children = (
 				A9E344202A851AD7002288F8 /* Color+Extension.swift */,
+				A9E3442D2A85D66D002288F8 /* Bundle+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		A9E344252A85D479002288F8 /* XCConfig */ = {
+			isa = PBXGroup;
+			children = (
+				A9E344262A85D532002288F8 /* shared.xcconfig */,
+			);
+			path = XCConfig;
 			sourceTree = "<group>";
 		};
 		A9F327532A80DFDD0075CD7F = {
@@ -221,6 +243,7 @@
 		A9F3275E2A80DFDD0075CD7F /* ScreenTime_Barebones */ = {
 			isa = PBXGroup;
 			children = (
+				A9E3442C2A85D605002288F8 /* ScreenTime-Barebones-Info.plist */,
 				A9F327CA2A81D96E0075CD7F /* ScreenTime_Barebones.entitlements */,
 				A9F3276D2A81CD1D0075CD7F /* App */,
 				A9F327CB2A81DDC40075CD7F /* Utils */,
@@ -243,6 +266,7 @@
 		A9F3276D2A81CD1D0075CD7F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				A9E344252A85D479002288F8 /* XCConfig */,
 				A9F327612A80DFDD0075CD7F /* ContentView.swift */,
 				A9F3275F2A80DFDD0075CD7F /* ScreenTime_BarebonesApp.swift */,
 			);
@@ -530,6 +554,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F3277B2A81D1410075CD7F /* .swiftlint.yml in Resources */,
+				A9E344272A85D532002288F8 /* shared.xcconfig in Resources */,
 				A9F327672A80DFDF0075CD7F /* Preview Assets.xcassets in Resources */,
 				A9F327642A80DFDF0075CD7F /* Assets.xcassets in Resources */,
 			);
@@ -539,6 +564,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E344282A85D532002288F8 /* shared.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +572,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E344292A85D532002288F8 /* shared.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9E344242A852AC7002288F8 /* AppIcon.png in Resources */,
+				A9E3442A2A85D532002288F8 /* shared.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +589,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E3442B2A85D532002288F8 /* shared.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +625,7 @@
 				A9F327712A81CDEB0075CD7F /* PermissionView.swift in Sources */,
 				A9F327762A81CE7D0075CD7F /* ScheduleView.swift in Sources */,
 				A9F327D82A836A310075CD7F /* DeviceActivtyManager.swift in Sources */,
+				A9E3442E2A85D66D002288F8 /* Bundle+Extension.swift in Sources */,
 				A9F327622A80DFDD0075CD7F /* ContentView.swift in Sources */,
 				A9F327D42A827FDF0075CD7F /* MainTabView.swift in Sources */,
 				B84A0ACF2A83DC9900EA9571 /* DeviceActivityMonitorExtension.swift in Sources */,
@@ -615,6 +645,7 @@
 				B84A0ACD2A83DC2400EA9571 /* DeviceActivtyManager.swift in Sources */,
 				B84A0ACE2A83DC3100EA9571 /* ScheduleVM.swift in Sources */,
 				B84A0ACA2A83DA2D00EA9571 /* DeviceActivityMonitorExtension.swift in Sources */,
+				A9E3442F2A85D679002288F8 /* Bundle+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +654,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F327AE2A81D81C0075CD7F /* ShieldActionExtension.swift in Sources */,
+				A9E344302A85D67A002288F8 /* Bundle+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +663,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F327C12A81D8410075CD7F /* ShieldConfigurationExtension.swift in Sources */,
+				A9E344312A85D67A002288F8 /* Bundle+Extension.swift in Sources */,
 				A9E344222A851B9A002288F8 /* Color+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -642,6 +675,7 @@
 				B84A0ABF2A83CFE800EA9571 /* TotalActivityView.swift in Sources */,
 				B84A0ABB2A83CFE800EA9571 /* ScreenTimeReport.swift in Sources */,
 				B84A0ABD2A83CFE800EA9571 /* TotalActivityReport.swift in Sources */,
+				A9E344322A85D67B002288F8 /* Bundle+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,6 +832,7 @@
 				DEVELOPMENT_TEAM = V7Y39HNV38;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ScreenTime-Barebones-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Screen Time 101";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -830,6 +865,7 @@
 				DEVELOPMENT_TEAM = V7Y39HNV38;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ScreenTime-Barebones-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Screen Time 101";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
