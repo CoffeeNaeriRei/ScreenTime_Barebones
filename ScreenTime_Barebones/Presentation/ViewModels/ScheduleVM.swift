@@ -42,20 +42,36 @@ enum ScheduleSectionInfo {
     }
 }
 
+// MARK: - TODO 미친 이슈 발생. String으로 값을 직접 넘겨주지 않을 때 userDefault가 정상동작하지 않음.
+
+// let APP_GROUP_NAME = "group.coffeenaerirei.screen_time_barebones"
+
+// let APP_GROUP_NAME = Bundle.main.object(forInfoDictionaryKey: "APP_GROUP_NAME") as! String
+
+// let APP_GROUP_NAME = Bundle.main.appGroupName
+
+let APP_GROUP_NAME = "group.coffeenaerirei.screen_time_barebones"
+
 class ScheduleVM: ObservableObject {
     // MARK: - 스케쥴 설정을 위한 멤버 변수
-    @AppStorage("scheduleStartTime", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    @AppStorage("scheduleStartTime", store: UserDefaults(suiteName: APP_GROUP_NAME))
     var scheduleStartTime = Date() // 현재 시간
-    @AppStorage("scheduleEndTime", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    @AppStorage("scheduleEndTime", store: UserDefaults(suiteName: APP_GROUP_NAME))
     var scheduleEndTime = Date() + 900 // 현재 시간 + 15분
     // MARK: - 사용자가 설정한 앱/도메인을 담고 있는 멤버 변수
-    @AppStorage("selection", store: UserDefaults(suiteName: Bundle.main.appGroupName))
+    @AppStorage("selection", store: UserDefaults(suiteName: APP_GROUP_NAME))
     var selection = FamilyActivitySelection()
 
     @Published var isFamilyActivitySectionActive = false
     @Published var isSaveAlertActive = false
     @Published var isRevokeAlertActive = false
     @Published var isStopMonitoringAlertActive = false
+    
+    private func resetAppGroupData() {
+        scheduleStartTime = Date()
+        scheduleEndTime = Date() + 900
+        selection = FamilyActivitySelection()
+    }
 }
 
 extension ScheduleVM {
@@ -99,6 +115,7 @@ extension ScheduleVM {
     /// 현재 모니터링 중이던 스케줄의 모니터링을 중단합니다.
     func stopScheduleMonitoring() {
         DeviceActivityManager.shared.handleStopDeviceActivityMonitoring()
+        resetAppGroupData()
     }
     
     // MARK: - 스케줄 모니터링 중단 alert 열기

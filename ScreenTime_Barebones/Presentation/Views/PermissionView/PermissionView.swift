@@ -45,7 +45,7 @@ extension PermissionView {
             }
             .frame(width: 40, height: 40)
         }
-        .padding(24)
+        .padding(8)
         .frame(maxWidth: .infinity, maxHeight: 42, alignment: .trailing)
         .opacity(isShow ? 1 : 0)
     }

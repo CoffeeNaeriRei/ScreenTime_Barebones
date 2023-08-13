@@ -9,7 +9,7 @@ import Foundation
 
 extension Bundle {
     var appGroupName: String {
-        guard let filePath = Bundle.main.path(forResource: "Info", ofType: "plist"),
+        guard let filePath = Bundle.main.path(forResource: "ScreenTime-Barebones-Info", ofType: "plist"),
               let plistDict = NSDictionary(contentsOfFile: filePath)
         else {
             fatalError("Couldn't find file 'ScreenTime-Barebones-Info.plist'.")
@@ -22,4 +22,14 @@ extension Bundle {
 
         return value
     }
+    
+    static let APP_GROUP_NAME: String = {
+        guard let value = Bundle.main.infoDictionary?["APP_GROUP_NAME"] as? String else {
+            fatalError("APP_NAME not set in Info.plist")
+        }
+        
+        print(value)
+        
+        return value
+    }()
 }
