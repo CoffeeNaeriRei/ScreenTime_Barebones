@@ -46,6 +46,9 @@
 		A9F327D82A836A310075CD7F /* DeviceActivtyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327D72A836A310075CD7F /* DeviceActivtyManager.swift */; };
 		A9F327DA2A836CB20075CD7F /* ScheduleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F327D92A836CB20075CD7F /* ScheduleVM.swift */; };
 		B82064F22A85CD2A00B358A2 /* ScreenTimeActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82064F12A85CD2A00B358A2 /* ScreenTimeActivityReport.swift */; };
+		B82064F32A85D7B400B358A2 /* TotalActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A0ABC2A83CFE800EA9571 /* TotalActivityReport.swift */; };
+		B82064F42A85DFA800B358A2 /* ScreenTimeActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82064F12A85CD2A00B358A2 /* ScreenTimeActivityReport.swift */; };
+		B82064F52A85DFAB00B358A2 /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A0ABE2A83CFE800EA9571 /* TotalActivityView.swift */; };
 		B84A0ABB2A83CFE800EA9571 /* ScreenTimeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A0ABA2A83CFE800EA9571 /* ScreenTimeReport.swift */; };
 		B84A0ABD2A83CFE800EA9571 /* TotalActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A0ABC2A83CFE800EA9571 /* TotalActivityReport.swift */; };
 		B84A0ABF2A83CFE800EA9571 /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84A0ABE2A83CFE800EA9571 /* TotalActivityView.swift */; };
@@ -643,9 +646,12 @@
 				A9F327D22A827FBE0075CD7F /* MainTabVM.swift in Sources */,
 				A9E344212A851AD7002288F8 /* Color+Extension.swift in Sources */,
 				A9F327CD2A81DE140075CD7F /* FamilyControlsManager.swift in Sources */,
+				B82064F52A85DFAB00B358A2 /* TotalActivityView.swift in Sources */,
 				A9F327602A80DFDD0075CD7F /* ScreenTime_BarebonesApp.swift in Sources */,
 				A9F327782A81CE8C0075CD7F /* MonitoringView.swift in Sources */,
+				B82064F32A85D7B400B358A2 /* TotalActivityReport.swift in Sources */,
 				A9F327DA2A836CB20075CD7F /* ScheduleVM.swift in Sources */,
+				B82064F42A85DFA800B358A2 /* ScreenTimeActivityReport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -843,7 +849,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ScreenTime_Barebones/Preview Content\"";
-				DEVELOPMENT_TEAM = V7Y39HNV38;
+				DEVELOPMENT_TEAM = RCM87YWJ79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ScreenTime-Barebones-Info.plist";
@@ -876,7 +882,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ScreenTime_Barebones/Preview Content\"";
-				DEVELOPMENT_TEAM = V7Y39HNV38;
+				DEVELOPMENT_TEAM = RCM87YWJ79;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "ScreenTime-Barebones-Info.plist";
@@ -905,7 +911,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitor/DeviceActivityMonitor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V7Y39HNV38;
+				DEVELOPMENT_TEAM = RCM87YWJ79;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeviceActivityMonitor/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DeviceActivityMonitor;
@@ -931,7 +937,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitor/DeviceActivityMonitor.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V7Y39HNV38;
+				DEVELOPMENT_TEAM = RCM87YWJ79;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeviceActivityMonitor/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = DeviceActivityMonitor;
@@ -957,7 +963,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShieldAction/ShieldAction.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V7Y39HNV38;
+				DEVELOPMENT_TEAM = RCM87YWJ79;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShieldAction/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShieldAction;
@@ -983,7 +989,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShieldAction/ShieldAction.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V7Y39HNV38;
+				DEVELOPMENT_TEAM = RCM87YWJ79;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShieldAction/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShieldAction;
@@ -1009,7 +1015,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShieldConfiguration/ShieldConfiguration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V7Y39HNV38;
+				DEVELOPMENT_TEAM = RCM87YWJ79;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShieldConfiguration/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfiguration;
@@ -1035,7 +1041,7 @@
 				CODE_SIGN_ENTITLEMENTS = ShieldConfiguration/ShieldConfiguration.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V7Y39HNV38;
+				DEVELOPMENT_TEAM = RCM87YWJ79;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShieldConfiguration/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfiguration;
@@ -1061,7 +1067,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScreenTimeReport/ScreenTimeReport.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V7Y39HNV38;
+				DEVELOPMENT_TEAM = RCM87YWJ79;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScreenTimeReport/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ScreenTimeReport;
@@ -1088,7 +1094,7 @@
 				CODE_SIGN_ENTITLEMENTS = ScreenTimeReport/ScreenTimeReport.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V7Y39HNV38;
+				DEVELOPMENT_TEAM = RCM87YWJ79;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ScreenTimeReport/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ScreenTimeReport;

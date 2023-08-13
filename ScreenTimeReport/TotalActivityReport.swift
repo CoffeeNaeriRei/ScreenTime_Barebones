@@ -39,10 +39,10 @@ struct TotalActivityReport: DeviceActivityReportScene {
         })
         
         /// DeviceActivityResults 데이터에서 화면에 보여주기 위해 필요한 내용을 추출해줍니다.
-        for await d in data {
-            totalScreenTime += d.user.appleID!.debugDescription
-            totalScreenTime += d.lastUpdatedDate.description
-            for await activitySegment in d.activitySegments {
+        for await eachData in data {
+            totalScreenTime += eachData.user.appleID!.debugDescription
+            totalScreenTime += eachData.lastUpdatedDate.description
+            for await activitySegment in eachData.activitySegments {
                 totalScreenTime += activitySegment.totalActivityDuration.formatted()
                 for await category in activitySegment.categories {
                     for await application in category.applications {
@@ -50,12 +50,12 @@ struct TotalActivityReport: DeviceActivityReportScene {
                         let bundle = (application.application.bundleIdentifier ?? "nil")
                         let duration = application.totalActivityDuration
                         let numberOfPickups = application.numberOfPickups
-                        let app = AppDeviceActivity(
+                        let appActivity = AppDeviceActivity(
                             id: bundle,
                             displayName: appName,
                             duration: duration,
                             numberOfPickups: numberOfPickups)
-                        list.append(app)
+                        list.append(appActivity)
                     }
                 }
                 
