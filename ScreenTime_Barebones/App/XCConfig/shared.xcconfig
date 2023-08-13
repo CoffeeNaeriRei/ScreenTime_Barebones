@@ -9,4 +9,5 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 // App Group
-APP_GROUP_NAME = "group.coffeenaerirei.screen_time_barebones"
+/// ‼️ 값에 따옴표를 넣으면 따옴표도 같이 문자열에 포함됩니다.
+APP_GROUP_NAME = group.coffeenaerirei.screen_time_barebones
