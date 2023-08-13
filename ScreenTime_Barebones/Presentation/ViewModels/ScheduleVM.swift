@@ -43,14 +43,13 @@ enum ScheduleSectionInfo {
 }
 
 // MARK: - TODO 미친 이슈 발생. String으로 값을 직접 넘겨주지 않을 때 userDefault가 정상동작하지 않음.
-
+// TODO: - 너굴맨이 해치웠으니 안심하고 주석 삭제
+// let APP_GROUP_NAME = "group.coffeenaerirei.screen_time_barebones"
+//let APP_GROUP_NAME = Bundle.main.object(forInfoDictionaryKey: "APP_GROUP_NAME") as! String
+// let APP_GROUP_NAME = Bundle.main.appGroupName
 // let APP_GROUP_NAME = "group.coffeenaerirei.screen_time_barebones"
 
-// let APP_GROUP_NAME = Bundle.main.object(forInfoDictionaryKey: "APP_GROUP_NAME") as! String
-
-// let APP_GROUP_NAME = Bundle.main.appGroupName
-
-let APP_GROUP_NAME = "group.coffeenaerirei.screen_time_barebones"
+let APP_GROUP_NAME = Bundle.main.APP_GROUP_NAME
 
 class ScheduleVM: ObservableObject {
     // MARK: - 스케쥴 설정을 위한 멤버 변수
