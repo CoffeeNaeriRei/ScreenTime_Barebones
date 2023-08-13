@@ -10,10 +10,11 @@ import SwiftUI
 
 // swiftlint:disable identifier_name
 extension Color {
-    static var accentColor: Self {
+    
+    static var primaryColor: Self {
         .init(hex: "#5856D6")
     }
-            
+    
     init(hex: String) {
         let scanner = Scanner(string: hex)
         _ = scanner.scanString("#")
@@ -30,5 +31,5 @@ extension Color {
 // swiftlint:enable identifier_name
 
 enum ColorManager {
-    static let accentColor: UIColor = UIColor(Color.accentColor)
+    static let accentColor: UIColor = UIColor(Color.primaryColor)
 }

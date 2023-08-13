@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A9E344212A851AD7002288F8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E344202A851AD7002288F8 /* Color+Extension.swift */; };
 		A9E344222A851B9A002288F8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E344202A851AD7002288F8 /* Color+Extension.swift */; };
-		A9E344242A852AC7002288F8 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E344232A852AC7002288F8 /* AppIcon.png */; };
+		A9E344242A852AC7002288F8 /* AppSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E344232A852AC7002288F8 /* AppSymbol.png */; };
 		A9E344272A85D532002288F8 /* shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9E344262A85D532002288F8 /* shared.xcconfig */; };
 		A9E344282A85D532002288F8 /* shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9E344262A85D532002288F8 /* shared.xcconfig */; };
 		A9E344292A85D532002288F8 /* shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A9E344262A85D532002288F8 /* shared.xcconfig */; };
@@ -112,7 +112,7 @@
 
 /* Begin PBXFileReference section */
 		A9E344202A851AD7002288F8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		A9E344232A852AC7002288F8 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		A9E344232A852AC7002288F8 /* AppSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppSymbol.png; sourceTree = "<group>"; };
 		A9E344262A85D532002288F8 /* shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = shared.xcconfig; sourceTree = "<group>"; };
 		A9E3442C2A85D605002288F8 /* ScreenTime-Barebones-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "ScreenTime-Barebones-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A9E3442D2A85D66D002288F8 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 		A9F327BF2A81D8410075CD7F /* ShieldConfiguration */ = {
 			isa = PBXGroup;
 			children = (
-				A9E344232A852AC7002288F8 /* AppIcon.png */,
+				A9E344232A852AC7002288F8 /* AppSymbol.png */,
 				A9F327C02A81D8410075CD7F /* ShieldConfigurationExtension.swift */,
 				A9F327C22A81D8410075CD7F /* Info.plist */,
 				A9F327C32A81D8410075CD7F /* ShieldConfiguration.entitlements */,
@@ -580,7 +580,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9E344242A852AC7002288F8 /* AppIcon.png in Resources */,
+				A9E344242A852AC7002288F8 /* AppSymbol.png in Resources */,
 				A9E3442A2A85D532002288F8 /* shared.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
