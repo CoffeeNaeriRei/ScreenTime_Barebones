@@ -24,7 +24,7 @@ class ShieldConfigurationExtension: ShieldConfigurationDataSource {
     private func setShieldConfig(
         _ tokenName: String,
         hasSecondaryButton: Bool = false) -> ShieldConfiguration {
-            let CUSTOM_ICON = UIImage(named: "AppIcon.png")
+            let CUSTOM_ICON = UIImage(named: "AppSymbol.png")
         let CUSTOM_TITLE = ShieldConfiguration.Label(
             text: "Screen Time 101",
             color: ColorManager.accentColor
