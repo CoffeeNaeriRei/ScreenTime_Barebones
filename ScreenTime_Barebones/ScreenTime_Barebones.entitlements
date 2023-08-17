@@ -6,7 +6,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.coffeenaerirei.screen_time_barebones</string>
+		<string>group.com.coffeenaerirei.screentimebarebones</string>
 	</array>
 </dict>
 </plist>
