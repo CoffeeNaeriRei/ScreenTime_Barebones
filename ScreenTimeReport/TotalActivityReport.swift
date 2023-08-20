@@ -52,11 +52,14 @@ struct TotalActivityReport: DeviceActivityReportScene {
                         let bundle = (application.application.bundleIdentifier ?? "nil")
                         let duration = application.totalActivityDuration
                         let numberOfPickups = application.numberOfPickups
+                        let token = application.application.token
                         let appActivity = AppDeviceActivity(
                             id: bundle,
                             displayName: appName,
                             duration: duration,
-                            numberOfPickups: numberOfPickups)
+                            numberOfPickups: numberOfPickups,
+                            token: token
+                        )
                         list.append(appActivity)
                     }
                 }
