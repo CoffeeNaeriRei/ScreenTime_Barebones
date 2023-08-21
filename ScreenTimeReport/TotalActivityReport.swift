@@ -56,6 +56,7 @@ struct TotalActivityReport: DeviceActivityReportScene {
                         let appActivity = AppDeviceActivity(
                             id: bundle,
                             displayName: appName,
+                            labelToken: appToken,
                             duration: duration,
                             numberOfPickups: numberOfPickups,
                             token: token
