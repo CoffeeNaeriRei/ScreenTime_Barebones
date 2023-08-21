@@ -7,6 +7,7 @@
 
 // MARK: - Device Activity Report 관련 데이터 모델이 정의되어 있는 파일입니다.
 import Foundation
+import ManagedSettings
 
 struct ActivityReport {
     let totalDuration: TimeInterval
@@ -18,6 +19,7 @@ struct AppDeviceActivity: Identifiable {
     var displayName: String
     var duration: TimeInterval
     var numberOfPickups: Int
+    var token: ApplicationToken?
 }
 
 extension TimeInterval {

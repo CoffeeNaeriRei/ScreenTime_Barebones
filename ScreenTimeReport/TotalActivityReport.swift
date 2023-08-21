@@ -28,7 +28,8 @@ struct TotalActivityReport: DeviceActivityReportScene {
     let content: (ActivityReport) -> TotalActivityView
     
     /// DeviceActivityResults 데이터를 받아서 필터링
-    func makeConfiguration(representing data: DeviceActivityResults<DeviceActivityData>) async -> ActivityReport {
+    func makeConfiguration(
+        representing data: DeviceActivityResults<DeviceActivityData>) async -> ActivityReport {
         // Reformat the data into a configuration that can be used to create
         // the report's view.
         var totalScreenTime = "" /// 총 스크린 타임 시간
@@ -40,7 +41,8 @@ struct TotalActivityReport: DeviceActivityReportScene {
         
         /// DeviceActivityResults 데이터에서 화면에 보여주기 위해 필요한 내용을 추출해줍니다.
         for await eachData in data {
-            totalScreenTime += eachData.user.appleID!.debugDescription
+            guard let appleID = eachData.user.appleID else {fatalError("none appleID")}
+            totalScreenTime += appleID.debugDescription
             totalScreenTime += eachData.lastUpdatedDate.description
             for await activitySegment in eachData.activitySegments {
                 totalScreenTime += activitySegment.totalActivityDuration.formatted()
@@ -50,11 +52,14 @@ struct TotalActivityReport: DeviceActivityReportScene {
                         let bundle = (application.application.bundleIdentifier ?? "nil")
                         let duration = application.totalActivityDuration
                         let numberOfPickups = application.numberOfPickups
+                        let token = application.application.token
                         let appActivity = AppDeviceActivity(
                             id: bundle,
                             displayName: appName,
                             duration: duration,
-                            numberOfPickups: numberOfPickups)
+                            numberOfPickups: numberOfPickups,
+                            token: token
+                        )
                         list.append(appActivity)
                     }
                 }

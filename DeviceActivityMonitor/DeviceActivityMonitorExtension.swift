@@ -58,7 +58,9 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
         // Handle the warning before the interval ends.
     }
     
-    override func eventWillReachThresholdWarning(_ event: DeviceActivityEvent.Name, activity: DeviceActivityName) {
+    override func eventWillReachThresholdWarning(
+        _ event: DeviceActivityEvent.Name,
+        activity: DeviceActivityName) {
         super.eventWillReachThresholdWarning(event, activity: activity)
         
         // Handle the warning before the event reaches its threshold.
