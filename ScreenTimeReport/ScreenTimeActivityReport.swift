@@ -17,7 +17,6 @@ struct ActivityReport {
 struct AppDeviceActivity: Identifiable {
     var id: String
     var displayName: String
-    var labelToken: ApplicationToken
     var duration: TimeInterval
     var numberOfPickups: Int
     var token: ApplicationToken?
