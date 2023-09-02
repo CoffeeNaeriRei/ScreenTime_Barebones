@@ -32,27 +32,23 @@ struct TotalActivityReport: DeviceActivityReportScene {
         representing data: DeviceActivityResults<DeviceActivityData>) async -> ActivityReport {
         // Reformat the data into a configuration that can be used to create
         // the report's view.
-        var totalScreenTime = "" /// 총 스크린 타임 시간
+        var totalActivityDuration: Double = 0 /// 총 스크린 타임 시간
         var list: [AppDeviceActivity] = [] /// 사용 앱 리스트
-        
-        let totalActivityDuration = await data.flatMap { $0.activitySegments }.reduce(0, {
-            $0 + $1.totalActivityDuration
-        })
         
         /// DeviceActivityResults 데이터에서 화면에 보여주기 위해 필요한 내용을 추출해줍니다.
         for await eachData in data {
-            guard let appleID = eachData.user.appleID else {fatalError("none appleID")}
-            totalScreenTime += appleID.debugDescription
-            totalScreenTime += eachData.lastUpdatedDate.description
+            /// 특정 시간 간격 동안 사용자의 활동
             for await activitySegment in eachData.activitySegments {
-                totalScreenTime += activitySegment.totalActivityDuration.formatted()
-                for await category in activitySegment.categories {
-                    for await application in category.applications {
-                        let appName = (application.application.localizedDisplayName ?? "nil")
-                        let bundle = (application.application.bundleIdentifier ?? "nil")
-                        let duration = application.totalActivityDuration
-                        let numberOfPickups = application.numberOfPickups
-                        let token = application.application.token
+                /// 활동 세그먼트 동안 사용자의 카테고리 별 Device Activity
+                for await categoryActivity in activitySegment.categories {
+                    /// 이 카테고리의 totalActivityDuration에 기여한 사용자의 application Activity
+                    for await applicationActivity in categoryActivity.applications {
+                        let appName = (applicationActivity.application.localizedDisplayName ?? "nil") /// 앱 이름
+                        let bundle = (applicationActivity.application.bundleIdentifier ?? "nil") /// 앱 번들id
+                        let duration = applicationActivity.totalActivityDuration /// 앱의 total activity 기간
+                        totalActivityDuration += duration
+                        let numberOfPickups = applicationActivity.numberOfPickups /// 앱에 대해 직접적인 pickup 횟수
+                        let token = applicationActivity.application.token /// 앱의 토큰
                         let appActivity = AppDeviceActivity(
                             id: bundle,
                             displayName: appName,
@@ -63,7 +59,7 @@ struct TotalActivityReport: DeviceActivityReportScene {
                         list.append(appActivity)
                     }
                 }
-                
+
             }
         }
         
