@@ -8,6 +8,7 @@
 import DeviceActivity
 import SwiftUI
 
+// MARK: - Device Activity Report 내용을 보여주는 뷰
 struct MonitoringView: View {
     @ObservedObject var vm = ScheduleVM()
     
