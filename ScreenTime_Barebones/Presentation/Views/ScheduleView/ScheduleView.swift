@@ -19,6 +19,9 @@ import FamilyControls
 struct ScheduleView: View {
     @ObservedObject var vm = ScheduleVM()
     
+    /// 스케쥴 저장 버튼을 누르기 전 선택한 앱들을 저장하고 있을 변수입니다.
+    @State var tempSelection = ScheduleVM().selection
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -31,7 +34,7 @@ struct ScheduleView: View {
             .navigationBarTitleDisplayMode(.inline)
             .familyActivityPicker(
                 isPresented: $vm.isFamilyActivitySectionActive,
-                selection: $vm.selection
+                selection: $tempSelection
             )
             .alert("저장 되었습니다.", isPresented: $vm.isSaveAlertActive) {
                 Button("OK", role: .cancel) {}
@@ -45,6 +48,7 @@ struct ScheduleView: View {
             .alert("모니터링을 중단하시겠습니까?", isPresented: $vm.isStopMonitoringAlertActive) {
                 Button("취소", role: .cancel) {}
                 Button("확인", role: .destructive) {
+                    tempSelection = FamilyActivitySelection()
                     vm.stopScheduleMonitoring()
                 }
             }
@@ -61,7 +65,7 @@ extension ScheduleView {
             let BUTTON_LABEL = "스케쥴 저장"
             
             Button {
-                vm.saveSchedule()
+                vm.saveSchedule(selectedApps: tempSelection)
             } label: {
                 Text(BUTTON_LABEL)
             }
@@ -112,17 +116,17 @@ extension ScheduleView {
             },
             footer: Text(ScheduleSectionInfo.apps.footer)
         ) {
-            if vm.isSelectionEmpty() {
+            if isSelectionEmpty() {
                 Text(EMPTY_TEXT)
                     .foregroundColor(Color.secondary)
             } else {
-                ForEach(Array(vm.selection.applicationTokens), id: \.self) { token in
+                ForEach(Array(tempSelection.applicationTokens), id: \.self) { token in
                     Label(token)
                 }
-                ForEach(Array(vm.selection.categoryTokens), id: \.self) { token in
+                ForEach(Array(tempSelection.categoryTokens), id: \.self) { token in
                     Label(token)
                 }
-                ForEach(Array(vm.selection.webDomainTokens), id: \.self) { token in
+                ForEach(Array(tempSelection.webDomainTokens), id: \.self) { token in
                     Label(token)
                 }
             }
@@ -171,6 +175,19 @@ extension ScheduleView {
                 .tint(Color.red)
         }
     }
+    
+}
+
+// MARK: - Methods
+extension ScheduleView {
+    
+    /// 사용자가 선택한 앱 & 도메인 토큰이 비어있는지 확인하기 위한 메서드입니다.
+    private func isSelectionEmpty() -> Bool {
+        tempSelection.applicationTokens.isEmpty &&
+        tempSelection.categoryTokens.isEmpty &&
+        tempSelection.webDomainTokens.isEmpty
+    }
+    
 }
 
 struct ScheduleView_Previews: PreviewProvider {

@@ -79,17 +79,20 @@ extension ScheduleVM {
         isRevokeAlertActive = true
     }
     
-    /// 사용자가 선택한 앱 & 도메인 토큰이 비어있는지 확인하기 위한 메서드입니다.
-    func isSelectionEmpty() -> Bool {
-        selection.applicationTokens.isEmpty &&
-        selection.categoryTokens.isEmpty &&
-        selection.webDomainTokens.isEmpty
-    }
+    // TODO: - ScheduleView의 tempSelection으로 확인하도록 바꿔서 ScheduleView로 위치를 옮겼습니다. (확인 후 삭제)
+//    /// 사용자가 선택한 앱 & 도메인 토큰이 비어있는지 확인하기 위한 메서드입니다.
+//    func isSelectionEmpty() -> Bool {
+//        selection.applicationTokens.isEmpty &&
+//        selection.categoryTokens.isEmpty &&
+//        selection.webDomainTokens.isEmpty
+//    }
     
     // MARK: - 스케쥴 저장
     /// 설정한 시간 DeviceActivityManager를 통해 전달하여 설정한 시간을 모니터링할 수 있습니다.
     /// 모니터링을 등록하면 DeviceActivityMonitorExtension를 활용해 특정 시점의 이벤트를 감지할 수 있습니다.
-    func saveSchedule() {
+    func saveSchedule(selectedApps: FamilyActivitySelection) {
+        selection = selectedApps
+        
         let startTime = Calendar.current.dateComponents([.hour, .minute], from: scheduleStartTime)
         let endTime = Calendar.current.dateComponents([.hour, .minute], from: scheduleEndTime)
         

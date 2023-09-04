@@ -8,11 +8,19 @@
 import DeviceActivity
 import SwiftUI
 
+// MARK: - Device Activity Report 내용을 보여주는 뷰
 struct MonitoringView: View {
     @ObservedObject var vm = ScheduleVM()
     
     @State private var context: DeviceActivityReport.Context = .totalActivity
-    @State private var filter = DeviceActivityFilter(segment: .daily(during: Calendar.current.dateInterval(of: .day, for: .now)!))
+    @State private var filter = DeviceActivityFilter(
+        segment: .daily(
+            during: Calendar.current.dateInterval(
+                of: .day,
+                for: .now
+            ) ?? DateInterval()
+        )
+    )
     
     var body: some View {
         DeviceActivityReport(context, filter: filter)
@@ -21,7 +29,7 @@ struct MonitoringView: View {
                     segment: .daily(
                         during: Calendar.current.dateInterval(
                             of: .day, for: .now
-                        )!
+                        ) ?? DateInterval()
                     ),
                     users: .all,
                     devices: .init([.iPhone]),
@@ -32,8 +40,8 @@ struct MonitoringView: View {
     }
 }
 
-//struct MonitoringView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MonitoringView()
-//    }
-//}
+struct MonitoringView_Previews: PreviewProvider {
+    static var previews: some View {
+        MonitoringView()
+    }
+}
