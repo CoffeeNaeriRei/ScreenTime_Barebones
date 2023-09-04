@@ -10,7 +10,7 @@ import SwiftUI
 
 // MARK: - Device Activity Report 내용을 보여주는 뷰
 struct MonitoringView: View {
-    @ObservedObject var vm = ScheduleVM()
+    @EnvironmentObject var scheduleVM: ScheduleVM
     
     @State private var context: DeviceActivityReport.Context = .totalActivity
     @State private var filter = DeviceActivityFilter(
@@ -33,8 +33,8 @@ struct MonitoringView: View {
                     ),
                     users: .all,
                     devices: .init([.iPhone]),
-                    applications: vm.selection.applicationTokens,
-                    categories: vm.selection.categoryTokens
+                    applications: scheduleVM.selection.applicationTokens,
+                    categories: scheduleVM.selection.categoryTokens
                 )
             }
     }
