@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct ScreenTime_BarebonesApp: App {
     @StateObject var familyControlsManager = FamilyControlsManager.shared
+    @StateObject var scheduleVM = ScheduleVM()
     var body: some Scene {
         WindowGroup {
             VStack {
@@ -25,6 +26,7 @@ struct ScreenTime_BarebonesApp: App {
                 }
             }
             .environmentObject(familyControlsManager)
+            .environmentObject(scheduleVM)
         }
     }
 }

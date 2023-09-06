@@ -17,10 +17,10 @@ import FamilyControls
  */
 
 struct ScheduleView: View {
-    @ObservedObject var vm = ScheduleVM()
+    @EnvironmentObject var scheduleVM: ScheduleVM
     
     /// 스케쥴 저장 버튼을 누르기 전 선택한 앱들을 저장하고 있을 변수입니다.
-    @State var tempSelection = ScheduleVM().selection
+    @State var tempSelection = FamilyActivitySelection()
     
     var body: some View {
         NavigationView {
@@ -33,25 +33,28 @@ struct ScheduleView: View {
             .navigationTitle("Schedule")
             .navigationBarTitleDisplayMode(.inline)
             .familyActivityPicker(
-                isPresented: $vm.isFamilyActivitySectionActive,
+                isPresented: $scheduleVM.isFamilyActivitySectionActive,
                 selection: $tempSelection
             )
-            .alert("저장 되었습니다.", isPresented: $vm.isSaveAlertActive) {
+            .alert("저장 되었습니다.", isPresented: $scheduleVM.isSaveAlertActive) {
                 Button("OK", role: .cancel) {}
             }
-            .alert("권한 제거 시 스케쥴도 함께 제거됩니다.", isPresented: $vm.isRevokeAlertActive) {
+            .alert("권한 제거 시 스케쥴도 함께 제거됩니다.", isPresented: $scheduleVM.isRevokeAlertActive) {
                 Button("취소", role: .cancel) {}
                 Button("확인", role: .destructive) {
                     FamilyControlsManager.shared.requestAuthorizationRevoke()
                 }
             }
-            .alert("모니터링을 중단하시겠습니까?", isPresented: $vm.isStopMonitoringAlertActive) {
+            .alert("모니터링을 중단하시겠습니까?", isPresented: $scheduleVM.isStopMonitoringAlertActive) {
                 Button("취소", role: .cancel) {}
                 Button("확인", role: .destructive) {
                     tempSelection = FamilyActivitySelection()
-                    vm.stopScheduleMonitoring()
+                    scheduleVM.stopScheduleMonitoring()
                 }
             }
+        }
+        .onAppear {
+            tempSelection = scheduleVM.selection
         }
     }
 }
@@ -65,7 +68,7 @@ extension ScheduleView {
             let BUTTON_LABEL = "스케쥴 저장"
             
             Button {
-                vm.saveSchedule(selectedApps: tempSelection)
+                scheduleVM.saveSchedule(selectedApps: tempSelection)
             } label: {
                 Text(BUTTON_LABEL)
             }
@@ -86,7 +89,7 @@ extension ScheduleView {
     /// 전체 리스트 중 시간 설정 섹션에 해당하는 뷰입니다.
     private func setUpTimeSectionView() -> some View {
         let TIME_LABEL_LIST = ["시작 시간", "종료 시간"]
-        let times = [$vm.scheduleStartTime, $vm.scheduleEndTime]
+        let times = [$scheduleVM.scheduleStartTime, $scheduleVM.scheduleEndTime]
         
         return Section(
             header: Text(ScheduleSectionInfo.time.header),
@@ -109,7 +112,7 @@ extension ScheduleView {
                 Text(ScheduleSectionInfo.apps.header)
                 Spacer()
                 Button {
-                    vm.showFamilyActivitySelection()
+                    scheduleVM.showFamilyActivitySelection()
                 } label: {
                     Text(BUTTON_LABEL)
                 }
@@ -147,7 +150,7 @@ extension ScheduleView {
         let BUTTON_LABEL = "스케줄 모니터링 중단"
         
         return Button {
-            vm.showStopMonitoringAlert()
+            scheduleVM.showStopMonitoringAlert()
         } label: {
             Text(BUTTON_LABEL)
                 .tint(Color.red)
@@ -169,7 +172,7 @@ extension ScheduleView {
         let BUTTON_LABEL = "스크린 타임 권한 제거"
         
         return Button {
-            vm.showRevokeAlert()
+            scheduleVM.showRevokeAlert()
         } label: {
             Text(BUTTON_LABEL)
                 .tint(Color.red)
