@@ -39,17 +39,17 @@ struct ScheduleView: View {
             .alert("저장 되었습니다.", isPresented: $vm.isSaveAlertActive) {
                 Button("OK", role: .cancel) {}
             }
-            .alert("권한 제거 시 스케쥴도 함께 제거됩니다.", isPresented: $vm.isRevokeAlertActive) {
-                Button("취소", role: .cancel) {}
-                Button("확인", role: .destructive) {
-                    FamilyControlsManager.shared.requestAuthorizationRevoke()
-                }
-            }
             .alert("모니터링을 중단하시겠습니까?", isPresented: $vm.isStopMonitoringAlertActive) {
                 Button("취소", role: .cancel) {}
                 Button("확인", role: .destructive) {
                     tempSelection = FamilyActivitySelection()
                     vm.stopScheduleMonitoring()
+                }
+            }
+            .alert("권한 제거 시 스케쥴도 함께 제거됩니다.", isPresented: $vm.isRevokeAlertActive) {
+                Button("취소", role: .cancel) {}
+                Button("확인", role: .destructive) {
+                    FamilyControlsManager.shared.requestAuthorizationRevoke()
                 }
             }
         }
