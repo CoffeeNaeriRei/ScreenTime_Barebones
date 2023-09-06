@@ -39,7 +39,7 @@ struct ScheduleView: View {
             .alert("저장 되었습니다.", isPresented: $vm.isSaveAlertActive) {
                 Button("OK", role: .cancel) {}
             }
-            .alert("모니터링을 중단하시겠습니까?", isPresented: $vm.isStopMonitoringAlertActive) {
+            .alert("모니터링 중단 시 설정한 시간과 앱이 초기화됩니다.", isPresented: $vm.isStopMonitoringAlertActive) {
                 Button("취소", role: .cancel) {}
                 Button("확인", role: .destructive) {
                     tempSelection = FamilyActivitySelection()
