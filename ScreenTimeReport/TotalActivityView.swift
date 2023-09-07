@@ -94,6 +94,6 @@ struct ListRow: View {
                 Spacer()
             }
         }
-        .background(Color.white)
+        .background(.clear)
     }
 }
