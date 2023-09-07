@@ -17,8 +17,9 @@ import FamilyControls
  */
 
 struct ScheduleView: View {
+//    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var scheduleVM: ScheduleVM
-    
+
     /// 스케쥴 저장 버튼을 누르기 전 선택한 앱들을 저장하고 있을 변수입니다.
     @State var tempSelection = FamilyActivitySelection()
     
@@ -56,6 +57,9 @@ struct ScheduleView: View {
         .onAppear {
             tempSelection = scheduleVM.selection
         }
+//        .onChange(of: colorScheme) { _ in
+//            tempSelection = scheduleVM.selection
+//        }
     }
 }
 
