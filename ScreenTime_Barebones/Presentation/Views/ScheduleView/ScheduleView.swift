@@ -17,8 +17,9 @@ import FamilyControls
  */
 
 struct ScheduleView: View {
+//    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var scheduleVM: ScheduleVM
-    
+
     /// 스케쥴 저장 버튼을 누르기 전 선택한 앱들을 저장하고 있을 변수입니다.
     @State var tempSelection = FamilyActivitySelection()
     
@@ -39,14 +40,14 @@ struct ScheduleView: View {
             .alert("저장 되었습니다.", isPresented: $scheduleVM.isSaveAlertActive) {
                 Button("OK", role: .cancel) {}
             }
-            .alert("모니터링 중단 시 설정한 시간과 앱이 초기화됩니다.", isPresented: $vm.isStopMonitoringAlertActive) {
+            .alert("모니터링 중단 시 설정한 시간과 앱이 초기화됩니다.", isPresented: $scheduleVM.isStopMonitoringAlertActive) {
                 Button("취소", role: .cancel) {}
                 Button("확인", role: .destructive) {
                     tempSelection = FamilyActivitySelection()
                     scheduleVM.stopScheduleMonitoring()
                 }
             }
-            .alert("권한 제거 시 스케쥴도 함께 제거됩니다.", isPresented: $vm.isRevokeAlertActive) {
+            .alert("권한 제거 시 스케쥴도 함께 제거됩니다.", isPresented: $scheduleVM.isRevokeAlertActive) {
                 Button("취소", role: .cancel) {}
                 Button("확인", role: .destructive) {
                     FamilyControlsManager.shared.requestAuthorizationRevoke()
@@ -56,6 +57,9 @@ struct ScheduleView: View {
         .onAppear {
             tempSelection = scheduleVM.selection
         }
+//        .onChange(of: colorScheme) { _ in
+//            tempSelection = scheduleVM.selection
+//        }
     }
 }
 
