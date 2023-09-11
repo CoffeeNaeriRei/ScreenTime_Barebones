@@ -461,6 +461,17 @@ struct TotalActivityView: View {
     }
 }
 ```
+<br>
+
+## **☕️ CoffeeNaeriRei**  
+
+|Coffee|Rei|
+|:---:|:---:|
+|<img alt="" src="https://avatars.githubusercontent.com/u/88574289?v=4" width="150">|<img alt="" src="https://github.com/kybeen/kybeen/assets/89764127/54276ea1-b548-4f95-ab48-5887f0bf6137" width="150">|
+|[<img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>](https://github.com/yuncoffee)|[<img src="https://img.shields.io/badge/Github-black?style=for-the-badge&logo=github&logoColor=white" alt="Github Blog Badge"/>](https://github.com/kybeen)|
+| **💻 Developer** | **💻 Developer** |
+| **🎨 Designer**
+<br>
 
 ### 참고자료
 
