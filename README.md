@@ -487,4 +487,4 @@ struct TotalActivityView: View {
 
 **📚 WWDC 영상 정리**
 
-[Screen Time 관련 WWDC 영상을 보고 정리한 내용](https://healthy-degree-cc2.notion.site/Screen-Time-837e1ccfd14949eb9f441202b670d61b?pvs=4)
+[Screen Time 관련 WWDC 영상을 보고 정리한 내용](https://healthy-degree-cc2.notion.site/Screen-Time-6fda458dbf0e43f5893afc9f1641844c?pvs=4)
